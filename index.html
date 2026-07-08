@@ -1,17 +1,412 @@
-portfolio/
-│
-├── index.html          ← หน้าแรก
-├── about.html          ← แนะนำตัว
-├── education.html      ← ประวัติการศึกษา
-├── activities.html     ← กิจกรรม
-├── certificates.html   ← เกียรติบัตร
-├── contact.html        ← ติดต่อ
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   └── script.js
-│
-└── images/
-    └── profile.jpg
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Architecture Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#fff9f6;
+color:#555;
+}
+
+/* Navbar */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:18px;
+background:rgba(255,255,255,.8);
+backdrop-filter:blur(10px);
+z-index:999;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff8aa0;
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+flex-direction:column;
+background:linear-gradient(135deg,#ffe9f0,#fff8d9);
+}
+
+.hero img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:8px solid white;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.hero h1{
+font-size:50px;
+margin-top:20px;
+color:#ff7597;
+}
+
+.hero p{
+font-size:22px;
+margin-top:10px;
+}
+
+.hero button{
+margin-top:30px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+background:#ff8aa0;
+color:white;
+border-radius:50px;
+cursor:pointer;
+transition:.3s;
+}
+
+.hero button:hover{
+transform:scale(1.08);
+background:#ff6c8e;
+}
+
+/* section */
+
+section{
+padding:100px 12%;
+}
+
+.title{
+font-size:40px;
+text-align:center;
+margin-bottom:50px;
+color:#ff7597;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* Skill */
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.skill{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.bar{
+height:12px;
+background:#eee;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.fill{
+height:100%;
+background:#ff9fb0;
+}
+
+/* Portfolio */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.work{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.work:hover{
+transform:translateY(-10px);
+}
+
+.work img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.work h3{
+padding:15px;
+color:#ff7597;
+}
+
+/* Contact */
+
+.contact{
+text-align:center;
+}
+
+.contact p{
+font-size:20px;
+margin:15px;
+}
+
+footer{
+padding:30px;
+text-align:center;
+background:#ffe7ef;
+margin-top:60px;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+<a href="#about">แนะนำตัว</a>
+<a href="#education">การศึกษา</a>
+<a href="#skills">ทักษะ</a>
+<a href="#portfolio">ผลงาน</a>
+<a href="#contact">ติดต่อ</a>
+</nav>
+
+<div class="hero">
+
+<img src="profile.jpg">
+
+<h1>ชื่อ - นามสกุล</h1>
+
+<p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
+
+<p>Dream to become an Architect 🏛️</p>
+
+<button onclick="location.href='#about'">เริ่มชม Portfolio</button>
+
+</div>
+
+<section id="about">
+
+<h2 class="title">🌸 About Me</h2>
+
+<div class="about">
+
+<div class="card">
+
+<h2>แนะนำตัว</h2>
+
+<br>
+
+<p>
+
+สวัสดีค่ะ ดิฉันชื่อ...............................
+
+กำลังศึกษาชั้นมัธยมศึกษาปีที่ 6
+
+มีความสนใจด้านการออกแบบอาคาร
+
+การวาดภาพ
+
+การสร้างโมเดล
+
+และการออกแบบพื้นที่ใช้สอย
+
+มีความใฝ่ฝันที่จะศึกษาต่อคณะสถาปัตยกรรมศาสตร์
+
+เพื่อพัฒนาความคิดสร้างสรรค์และสร้างสรรค์ผลงานที่เป็นประโยชน์ต่อสังคม
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>ข้อมูลส่วนตัว</h2>
+
+<br>
+
+<p>🎂 วันเกิด :</p>
+
+<p>📍 จังหวัด :</p>
+
+<p>📞 โทร :</p>
+
+<p>📧 Email :</p>
+
+<p>🏫 โรงเรียน :</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="education">
+
+<h2 class="title">📚 Education</h2>
+
+<div class="card">
+
+<h3>โรงเรียน............................</h3>
+
+<p>ระดับชั้นมัธยมศึกษาปีที่ 1 - 6</p>
+
+<br>
+
+<h3>เกรดเฉลี่ย (GPAX)</h3>
+
+<p>...........</p>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="title">🎨 Skills</h2>
+
+<div class="skills">
+
+<div class="skill">
+Drawing
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="skill">
+SketchUp
+<div class="bar"><div class="fill" style="width:80%"></div></div>
+</div>
+
+<div class="skill">
+AutoCAD
+<div class="bar"><div class="fill" style="width:70%"></div></div>
+</div>
+
+<div class="skill">
+Photoshop
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+<div class="skill">
+Model Making
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+Creative Thinking
+<div class="bar"><div class="fill" style="width:95%"></div></div>
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio">
+
+<h2 class="title">🏛 Portfolio</h2>
+
+<div class="gallery">
+
+<div class="work">
+<img src="work1.jpg">
+<h3>Perspective Drawing</h3>
+</div>
+
+<div class="work">
+<img src="work2.jpg">
+<h3>House Design</h3>
+</div>
+
+<div class="work">
+<img src="work3.jpg">
+<h3>Architecture Model</h3>
+</div>
+
+<div class="work">
+<img src="work4.jpg">
+<h3>Interior Design</h3>
+</div>
+
+<div class="work">
+<img src="work5.jpg">
+<h3>Sketch Collection</h3>
+</div>
+
+<div class="work">
+<img src="work6.jpg">
+<h3>Creative Project</h3>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">📞 Contact</h2>
+
+<div class="contact">
+
+<p>📧 example@gmail.com</p>
+
+<p>📱 08x-xxx-xxxx</p>
+
+<p>📍 จังหวัด..............</p>
+
+<p>Instagram : @yourname</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with ❤️ for Architecture Portfolio
+
+</footer>
+
+</body>
+</html>
