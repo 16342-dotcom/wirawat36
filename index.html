@@ -1,313 +1,780 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
-
-<!-- ===================== -->
-<!-- HEAD -->
-<!-- ===================== -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>My Architecture Portfolio</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =======================================
-   1. ตั้งค่าพื้นฐาน
-======================================= */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Kanit',sans-serif;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background-image:
-    linear-gradient(
-    rgba(255,255,255,.75),
-    rgba(255,255,255,.75)
-    ),
-    url("background.png");
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+background-image:
+linear-gradient(
+rgba(255,255,255,0.75),
+rgba(255,255,255,0.75)
+),
+url("background.png");
 
-    color:#555;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+color:#555;
 }
 
-/* =======================================
-   2. Navbar
-======================================= */
+
+/* Navbar */
 
 nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    padding:18px;
-    background:rgba(255,255,255,.75);
-    backdrop-filter:blur(10px);
-    z-index:999;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:18px;
+
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(10px);
+
+z-index:999;
 }
+
 
 nav a{
-    text-decoration:none;
-    color:#555;
-    font-weight:600;
-    transition:.3s;
+text-decoration:none;
+color:#555;
+font-weight:600;
+transition:.3s;
 }
+
 
 nav a:hover{
-    color:#ff6fae;
+color:#ff6fae;
 }
 
-/* =======================================
-   3. Hero
-======================================= */
+
+
+/* Hero */
 
 .hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
 
-    background:linear-gradient(
-    135deg,
-    rgba(190,235,255,.8),
-    rgba(255,210,235,.8)
-    );
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+flex-direction:column;
+
+
+background:linear-gradient(
+135deg,
+rgba(190,235,255,.8),
+rgba(255,210,235,.8)
+);
+
 }
 
-.hero img{
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    object-fit:cover;
-    border:8px solid white;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+
+.hero img{src"my-inages.jpg" alt=" เจบัง.jpg" width="500">
+
+width:220px;
+height:220px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:8px solid white;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.15);
+
 }
+
+
 
 .hero h1{
-    font-size:50px;
-    margin-top:20px;
-    color:#ff72b8;
+
+font-size:50px;
+
+margin-top:20px;
+
+color:#ff72b8;
+
 }
+
+
 
 .hero p{
-    font-size:22px;
-    margin-top:10px;
+
+font-size:22px;
+
+margin-top:10px;
+
 }
+
+
 
 .hero button{
-    margin-top:30px;
-    padding:15px 35px;
-    border:none;
-    border-radius:50px;
-    background:#75caff;
-    color:white;
-    cursor:pointer;
+
+margin-top:30px;
+
+padding:15px 35px;
+
+font-size:18px;
+
+border:none;
+
+background:#75caff;
+
+color:white;
+
+border-radius:50px;
+
+cursor:pointer;
+
+transition:.3s;
+
 }
 
-/* =======================================
-   4. Section
-======================================= */
+
+
+.hero button:hover{
+
+transform:scale(1.08);
+
+background:#55b7f5;
+
+}
+
+
+
+/* Section */
 
 section{
-    padding:100px 12%;
+
+padding:100px 12%;
+
 }
+
+
 
 .title{
-    font-size:40px;
-    text-align:center;
-    margin-bottom:50px;
-    color:#5ba7ff;
+
+font-size:40px;
+
+text-align:center;
+
+margin-bottom:50px;
+
+color:#5ba7ff;
+
 }
 
-/* =======================================
-   5. About
-======================================= */
+
+
+/* About */
 
 .about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+align-items:center;
+
 }
+
+
 
 .card{
-    background:white;
-    padding:30px;
-    border-radius:25px;
+
+background:rgba(255,255,255,.9);
+
+padding:30px;
+
+border-radius:25px;
+
+border:3px solid #dff3ff;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.08);
+
 }
 
-/* =======================================
-   6. Skills
-======================================= */
+
+
+/* Skills */
 
 .skills{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
 }
+
+
 
 .skill{
-    background:white;
-    padding:25px;
-    border-radius:20px;
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,.08);
+
 }
+
+
 
 .bar{
-    height:12px;
-    background:#eee;
-    border-radius:20px;
-    overflow:hidden;
-    margin-top:10px;
+
+height:12px;
+
+background:#eee;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-top:10px;
+
 }
+
+
 
 .fill{
-    height:100%;
-    background:linear-gradient(90deg,#79cfff,#ff8dc2);
+
+height:100%;
+
+background:linear-gradient(
+90deg,
+#79cfff,
+#ff8dc2
+);
+
 }
 
-/* =======================================
-   7. Portfolio
-======================================= */
+
+
+/* Portfolio */
 
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
 }
+
+
 
 .work{
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,.08);
+
+transition:.4s;
+
 }
+
+
+
+.work:hover{
+
+transform:translateY(-10px);
+
+}
+
+
 
 .work img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
 }
 
-/* =======================================
-   8. Contact
-======================================= */
+
+
+.work h3{
+
+padding:15px;
+
+color:#ff72b8;
+
+}
+
+
+
+/* Contact */
 
 .contact{
-    text-align:center;
+
+text-align:center;
+
 }
+
+
 
 .contact p{
-    margin:15px;
+
+font-size:20px;
+
+margin:15px;
+
 }
 
-/* =======================================
-   9. Footer
-======================================= */
+
+
+/* Footer */
 
 footer{
-    text-align:center;
-    padding:30px;
-    background:#dff3ff;
+
+padding:30px;
+
+text-align:center;
+
+background:#dff3ff;
+
+margin-top:60px;
+
 }
 
 </style>
 
 </head>
 
+
+
 <body>
 
-<!-- =======================================
-     Navbar
-======================================= -->
+
 
 <nav>
-    ...
+
+<a href="#about">แนะนำตัว</a>
+
+<a href="#education">การศึกษา</a>
+
+<a href="#skills">ทักษะ</a>
+
+<a href="#portfolio">ผลงาน</a>
+
+<a href="#contact">ติดต่อ</a>
+
 </nav>
 
-<!-- =======================================
-     Hero
-======================================= -->
+
+
 
 <div class="hero">
 
-    <img src="profile.jpg" alt="รูปโปรไฟล์">
 
-    <h1>นาย วิรวัฒน์ บูรพกรณ์</h1>
+<img src="profile.jpg">
 
-    <p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
 
-    <p>Dream to become an Architect 🏛️</p>
+<h1>ชื่อ นาย วิรวัฒน์ บูรพกรณ์ </h1>
+
+
+<p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
+
+
+<p>Dream to become an Architect 🏛️</p>
+
+
+<button onclick="location.href='#about'">
+
+เริ่มชม Portfolio
+
+</button>
+
 
 </div>
 
-<!-- =======================================
-     About
-======================================= -->
+
+
+
 
 <section id="about">
 
-...
+
+<h2 class="title">
+🌸 About Me
+</h2>
+
+
+
+<div class="about">
+
+
+<div class="card">
+
+<h2>แนะนำตัว</h2>
+
+<br>
+
+<p>
+
+สวัสดีครับ ผมชื่อนาย วิรวัฒน์ บูรพกรณ์ 
+
+กำลังศึกษาชั้นมัธยมศึกษาปีที่ 6
+
+มีความสนใจด้านสถาปัตยกรรม
+
+การออกแบบอาคาร
+
+การวาดภาพ
+
+การสร้างโมเดล
+
+และต้องการศึกษาต่อคณะสถาปัตยกรรมศาสตร์
+
+เพื่อพัฒนาความคิดสร้างสรรค์
+
+และสร้างผลงานที่มีคุณค่า
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>ข้อมูลส่วนตัว</h2>
+
+<br>
+
+<p>🎂 วันเกิด 29/01/51 :</p>
+
+<p>📍 จังหวัด ชลบุรี :</p>
+
+<p>🏫 โรงเรียน พานทอง :</p>
+
+<p>📞 โทร 062-437-4100 :</p>
+
+<p>📧 Email :</p>
+
+</div>
+
+
+
+</div>
 
 </section>
 
-<!-- =======================================
-     Education
-======================================= -->
+
+
+
 
 <section id="education">
 
-...
+
+<h2 class="title">
+📚 Education
+</h2>
+
+
+
+<div class="card">
+
+<h3>
+โรงเรียน พานทอง
+</h3>
+
+<p>
+ระดับมัธยมศึกษาปีที่ 4 - 6
+</p>
+
+<br>
+
+<h3>
+GPAX
+</h3>
+
+<p>
+3.31
+</p>
+
+
+</div>
+
 
 </section>
 
-<!-- =======================================
-     Skills
-======================================= -->
+
+
+
+
 
 <section id="skills">
 
-...
+
+<h2 class="title">
+🎨 Skills
+</h2>
+
+
+
+<div class="skills">
+
+
+<div class="skill">
+
+Drawing
+
+<div class="bar">
+
+<div class="fill" style="width:95%"></div>
+
+</div>
+
+</div>
+
+
+
+
+<div class="skill">
+
+SketchUp
+
+<div class="bar">
+
+<div class="fill" style="width:80%"></div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="skill">
+
+AutoCAD
+
+<div class="bar">
+
+<div class="fill" style="width:75%"></div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="skill">
+
+Photoshop
+
+<div class="bar">
+
+<div class="fill" style="width:85%"></div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="skill">
+
+Model Making
+
+<div class="bar">
+
+<div class="fill" style="width:90%"></div>
+
+</div>
+
+</div>
+
+
+
+</div>
 
 </section>
 
-<!-- =======================================
-     Portfolio
-======================================= -->
+
+
+
+
 
 <section id="portfolio">
 
-...
+
+<h2 class="title">
+🏛 Portfolio
+</h2>
+
+
+
+<div class="gallery">
+
+
+<div class="work">
+
+<img src="work1.jpg">
+
+<h3>
+Perspective Drawing
+</h3>
+
+</div>
+
+
+
+<div class="work">
+
+<img src="work2.jpg">
+
+<h3>
+House Design
+</h3>
+
+</div>
+
+
+
+<div class="work">
+
+<img src="work3.jpg">
+
+<h3>
+Architecture Model
+</h3>
+
+</div>
+
+
+
+<div class="work">
+
+<img src="work4.jpg">
+
+<h3>
+Interior Design
+</h3>
+
+</div>
+
+
+
+<div class="work">
+
+<img src="work5.jpg">
+
+<h3>
+Sketch Collection
+</h3>
+
+</div>
+
+
+
+<div class="work">
+
+<img src="work6.jpg">
+
+<h3>
+Creative Project
+</h3>
+
+</div>
+
+
+
+</div>
+
 
 </section>
 
-<!-- =======================================
-     Contact
-======================================= -->
+
+
+
+
 
 <section id="contact">
 
-...
+
+<h2 class="title">
+📞 Contact
+</h2>
+
+
+
+<div class="contact">
+
+
+<p>
+📧 example@gmail.com
+</p>
+
+
+<p>
+📱 062-437-4100
+</p>
+
+
+<p>
+Instagram : @yourname
+</p>
+
+
+</div>
+
 
 </section>
 
-<!-- =======================================
-     Footer
-======================================= -->
+
+
+
 
 <footer>
 
@@ -315,5 +782,10 @@ Made with ❤️ for Architecture Portfolio
 
 </footer>
 
+
+
+
 </body>
+
 </html>
+```
