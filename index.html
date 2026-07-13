@@ -1,153 +1,234 @@
-```html
+Portfolio/
+│── index.html
+│── style.css
+│── script.js
+│── images/
+│     ├── profile.jpg
+│     ├── project1.jpg
+│     └── bg.png
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Architecture Portfolio</title>
+<title>My Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
 
+</head>
+
+<body>
+
+<header>
+
+<h1>🌸 My Portfolio 🌸</h1>
+
+<nav>
+<a href="#about">เกี่ยวกับฉัน</a>
+<a href="#skills">ทักษะ</a>
+<a href="#projects">ผลงาน</a>
+<a href="#contact">ติดต่อ</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<img src="images/profile.jpg" class="profile">
+
+<h2>สวัสดีค่ะ 👋</h2>
+
+<p>ฉันชื่อ....</p>
+
+<button onclick="hello()">Say Hello 💖</button>
+
+</section>
+
+<section id="about" class="card">
+
+<h2>🙋‍♀️ เกี่ยวกับฉัน</h2>
+
+<p>
+
+ใส่ข้อมูลเกี่ยวกับตัวเอง เช่น
+กำลังศึกษา...
+ชอบออกแบบเว็บไซต์
+ชอบเขียนโปรแกรม
+
+</p>
+
+</section>
+
+<section id="skills" class="card">
+
+<h2>💻 Skills</h2>
+
+<div class="skills">
+
+<div>HTML</div>
+<div>CSS</div>
+<div>JavaScript</div>
+<div>Python</div>
+<div>Photoshop</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="card">
+
+<h2>🎨 ผลงาน</h2>
+
+<div class="project">
+
+<img src="images/project1.jpg">
+
+<h3>Project 1</h3>
+
+<p>เว็บไซต์ร้านกาแฟ</p>
+
+</div>
+
+<div class="project">
+
+<img src="images/project1.jpg">
+
+<h3>Project 2</h3>
+
+<p>Portfolio Website</p>
+
+</div>
+
+</section>
+
+<section id="contact" class="card">
+
+<h2>📞 ติดต่อ</h2>
+
+<p>Email : example@gmail.com</p>
+
+<p>Facebook : Your Name</p>
+
+<p>GitHub : github.com/yourname</p>
+
+</section>
+
+<footer>
+
+Made with ❤️ by Me
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Kanit',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
 
-background-image:
-linear-gradient(
-rgba(255,255,255,0.75),
-rgba(255,255,255,0.75)
-),
-url("background.png");
+background:linear-gradient(135deg,#FFE4F2,#FFF8DC);
 
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:fixed;
+color:#444;
 
-color:#555;
 }
 
+header{
 
-/* Navbar */
+background:white;
 
-nav{
-position:fixed;
-top:0;
-width:100%;
+padding:20px;
+
 display:flex;
-justify-content:center;
-gap:30px;
-padding:18px;
 
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(10px);
+justify-content:space-between;
 
-z-index:999;
+align-items:center;
+
+position:sticky;
+
+top:0;
+
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+
 }
-
 
 nav a{
-text-decoration:none;
-color:#555;
-font-weight:600;
-transition:.3s;
-}
 
+text-decoration:none;
+
+margin:10px;
+
+color:#ff5fa2;
+
+font-weight:bold;
+
+}
 
 nav a:hover{
-color:#ff6fae;
+
+color:#ff1493;
+
 }
-
-
-
-/* Hero */
 
 .hero{
 
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
 text-align:center;
-flex-direction:column;
 
-
-background:linear-gradient(
-135deg,
-rgba(190,235,255,.8),
-rgba(255,210,235,.8)
-);
+padding:60px;
 
 }
 
+.profile{
 
+width:180px;
 
-.hero img{src"my-inages.jpg" alt=" เจบัง.jpg" width="500">
-
-width:220px;
-height:220px;
+height:180px;
 
 border-radius:50%;
 
-object-fit:cover;
+border:6px solid white;
 
-border:8px solid white;
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.15);
+box-shadow:0 0 20px pink;
 
 }
 
-
-
-.hero h1{
-
-font-size:50px;
+.hero h2{
 
 margin-top:20px;
 
-color:#ff72b8;
+font-size:40px;
 
 }
-
-
 
 .hero p{
 
-font-size:22px;
-
-margin-top:10px;
+margin:20px;
 
 }
 
+button{
 
+padding:12px 25px;
 
-.hero button{
-
-margin-top:30px;
-
-padding:15px 35px;
-
-font-size:18px;
+background:#ff69b4;
 
 border:none;
 
-background:#75caff;
-
 color:white;
 
-border-radius:50px;
+border-radius:30px;
+
+font-size:18px;
 
 cursor:pointer;
 
@@ -155,637 +236,85 @@ transition:.3s;
 
 }
 
+button:hover{
 
+transform:scale(1.1);
 
-.hero button:hover{
-
-transform:scale(1.08);
-
-background:#55b7f5;
+background:#ff1493;
 
 }
-
-
-
-/* Section */
-
-section{
-
-padding:100px 12%;
-
-}
-
-
-
-.title{
-
-font-size:40px;
-
-text-align:center;
-
-margin-bottom:50px;
-
-color:#5ba7ff;
-
-}
-
-
-
-/* About */
-
-.about{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:40px;
-
-align-items:center;
-
-}
-
-
 
 .card{
 
-background:rgba(255,255,255,.9);
+width:85%;
+
+margin:auto;
+
+margin-top:40px;
+
+background:white;
 
 padding:30px;
 
-border-radius:25px;
+border-radius:20px;
 
-border:3px solid #dff3ff;
-
-box-shadow:
-
-0 10px 25px rgba(0,0,0,.08);
+box-shadow:0 5px 15px rgba(0,0,0,.1);
 
 }
-
-
-
-/* Skills */
 
 .skills{
 
 display:grid;
 
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
 
-gap:25px;
+gap:15px;
 
-}
-
-
-
-.skill{
-
-background:white;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:
-0 8px 20px rgba(0,0,0,.08);
+margin-top:20px;
 
 }
 
+.skills div{
 
-
-.bar{
-
-height:12px;
-
-background:#eee;
-
-border-radius:20px;
-
-overflow:hidden;
-
-margin-top:10px;
-
-}
-
-
-
-.fill{
-
-height:100%;
-
-background:linear-gradient(
-90deg,
-#79cfff,
-#ff8dc2
-);
-
-}
-
-
-
-/* Portfolio */
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
-
-}
-
-
-
-.work{
-
-background:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:
-0 8px 20px rgba(0,0,0,.08);
-
-transition:.4s;
-
-}
-
-
-
-.work:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-
-.work img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-}
-
-
-
-.work h3{
+background:#ffd6eb;
 
 padding:15px;
 
-color:#ff72b8;
-
-}
-
-
-
-/* Contact */
-
-.contact{
+border-radius:15px;
 
 text-align:center;
 
-}
-
-
-
-.contact p{
-
-font-size:20px;
-
-margin:15px;
+font-weight:bold;
 
 }
 
+.project{
 
+margin-top:30px;
 
-/* Footer */
+}
+
+.project img{
+
+width:100%;
+
+border-radius:15px;
+
+}
 
 footer{
 
-padding:30px;
+margin-top:50px;
 
 text-align:center;
 
-background:#dff3ff;
+padding:30px;
 
-margin-top:60px;
+color:#666;
 
 }
+function hello(){
 
-</style>
+alert("ขอบคุณที่เข้ามาชม Portfolio ของฉัน 💖");
 
-</head>
-
-
-
-<body>
-
-
-
-<nav>
-
-<a href="#about">แนะนำตัว</a>
-
-<a href="#education">การศึกษา</a>
-
-<a href="#skills">ทักษะ</a>
-
-<a href="#portfolio">ผลงาน</a>
-
-<a href="#contact">ติดต่อ</a>
-
-</nav>
-
-
-
-
-<div class="hero">
-
-
-<img src="profile.jpg">
-
-
-<h1>ชื่อ นาย วิรวัฒน์ บูรพกรณ์ </h1>
-
-
-<p>นักเรียนชั้นมัธยมศึกษาปีที่ 6</p>
-
-
-<p>Dream to become an Architect 🏛️</p>
-
-
-<button onclick="location.href='#about'">
-
-เริ่มชม Portfolio
-
-</button>
-
-
-</div>
-
-
-
-
-
-<section id="about">
-
-
-<h2 class="title">
-🌸 About Me
-</h2>
-
-
-
-<div class="about">
-
-
-<div class="card">
-
-<h2>แนะนำตัว</h2>
-
-<br>
-
-<p>
-
-สวัสดีครับ ผมชื่อนาย วิรวัฒน์ บูรพกรณ์ 
-
-กำลังศึกษาชั้นมัธยมศึกษาปีที่ 6
-
-มีความสนใจด้านสถาปัตยกรรม
-
-การออกแบบอาคาร
-
-การวาดภาพ
-
-การสร้างโมเดล
-
-และต้องการศึกษาต่อคณะสถาปัตยกรรมศาสตร์
-
-เพื่อพัฒนาความคิดสร้างสรรค์
-
-และสร้างผลงานที่มีคุณค่า
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>ข้อมูลส่วนตัว</h2>
-
-<br>
-
-<p>🎂 วันเกิด 29/01/51 :</p>
-
-<p>📍 จังหวัด ชลบุรี :</p>
-
-<p>🏫 โรงเรียน พานทอง :</p>
-
-<p>📞 โทร 062-437-4100 :</p>
-
-<p>📧 Email :</p>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="education">
-
-
-<h2 class="title">
-📚 Education
-</h2>
-
-
-
-<div class="card">
-
-<h3>
-โรงเรียน พานทอง
-</h3>
-
-<p>
-ระดับมัธยมศึกษาปีที่ 4 - 6
-</p>
-
-<br>
-
-<h3>
-GPAX
-</h3>
-
-<p>
-3.31
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="skills">
-
-
-<h2 class="title">
-🎨 Skills
-</h2>
-
-
-
-<div class="skills">
-
-
-<div class="skill">
-
-Drawing
-
-<div class="bar">
-
-<div class="fill" style="width:95%"></div>
-
-</div>
-
-</div>
-
-
-
-
-<div class="skill">
-
-SketchUp
-
-<div class="bar">
-
-<div class="fill" style="width:80%"></div>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="skill">
-
-AutoCAD
-
-<div class="bar">
-
-<div class="fill" style="width:75%"></div>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="skill">
-
-Photoshop
-
-<div class="bar">
-
-<div class="fill" style="width:85%"></div>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="skill">
-
-Model Making
-
-<div class="bar">
-
-<div class="fill" style="width:90%"></div>
-
-</div>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-
-
-
-<section id="portfolio">
-
-
-<h2 class="title">
-🏛 Portfolio
-</h2>
-
-
-
-<div class="gallery">
-
-
-<div class="work">
-
-<img src="work1.jpg">
-
-<h3>
-Perspective Drawing
-</h3>
-
-</div>
-
-
-
-<div class="work">
-
-<img src="work2.jpg">
-
-<h3>
-House Design
-</h3>
-
-</div>
-
-
-
-<div class="work">
-
-<img src="work3.jpg">
-
-<h3>
-Architecture Model
-</h3>
-
-</div>
-
-
-
-<div class="work">
-
-<img src="work4.jpg">
-
-<h3>
-Interior Design
-</h3>
-
-</div>
-
-
-
-<div class="work">
-
-<img src="work5.jpg">
-
-<h3>
-Sketch Collection
-</h3>
-
-</div>
-
-
-
-<div class="work">
-
-<img src="work6.jpg">
-
-<h3>
-Creative Project
-</h3>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="contact">
-
-
-<h2 class="title">
-📞 Contact
-</h2>
-
-
-
-<div class="contact">
-
-
-<p>
-📧 example@gmail.com
-</p>
-
-
-<p>
-📱 062-437-4100
-</p>
-
-
-<p>
-Instagram : @yourname
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<footer>
-
-Made with ❤️ for Architecture Portfolio
-
-</footer>
-
-
-
-
-</body>
-
-</html>
-```
+}
