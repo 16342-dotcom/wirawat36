@@ -1,320 +1,97 @@
-Portfolio/
-│── index.html
-│── style.css
-│── script.js
-│── images/
-│     ├── profile.jpg
-│     ├── project1.jpg
-│     └── bg.png
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>My Portfolio</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<header>
-
-<h1>🌸 My Portfolio 🌸</h1>
-
 <nav>
-<a href="#about">เกี่ยวกับฉัน</a>
-<a href="#skills">ทักษะ</a>
-<a href="#projects">ผลงาน</a>
-<a href="#contact">ติดต่อ</a>
+
+<h2>🌸 My Portfolio</h2>
+
+<ul>
+<li><a href="index.html">หน้าแรก</a></li>
+<li><a href="about.html">เกี่ยวกับฉัน</a></li>
+<li><a href="portfolio.html">ผลงาน</a></li>
+<li><a href="gallery.html">รูปภาพ</a></li>
+<li><a href="contact.html">ติดต่อ</a></li>
+</ul>
+
 </nav>
 
-</header>
-
-<section class="hero">
+<header>
 
 <img src="images/profile.jpg" class="profile">
 
-<h2>สวัสดีค่ะ 👋</h2>
+<h1>สวัสดีค่ะ</h1>
 
-<p>ฉันชื่อ....</p>
+<p>ยินดีต้อนรับสู่ Portfolio ของฉัน</p>
 
-<button onclick="hello()">Say Hello 💖</button>
+<a href="about.html" class="btn">รู้จักฉัน</a>
 
-</section>
+</header>
 
-<section id="about" class="card">
+<script src="js/script.js"></script>
 
-<h2>🙋‍♀️ เกี่ยวกับฉัน</h2>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>เกี่ยวกับฉัน</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html">🏠 กลับหน้าแรก</a>
+
+</nav>
+
+<section class="card">
+
+<h1>เกี่ยวกับฉัน</h1>
+
+<img src="images/profile.jpg" class="profile">
 
 <p>
 
-ใส่ข้อมูลเกี่ยวกับตัวเอง เช่น
-กำลังศึกษา...
-ชอบออกแบบเว็บไซต์
-ชอบเขียนโปรแกรม
+ชื่อ : ........................
+
+</p>
+
+<p>
+
+อายุ : .... ปี
+
+</p>
+
+<p>
+
+โรงเรียน / มหาวิทยาลัย
+
+</p>
+
+<p>
+
+งานอดิเรก :
 
 </p>
 
 </section>
 
-<section id="skills" class="card">
-
-<h2>💻 Skills</h2>
-
-<div class="skills">
-
-<div>HTML</div>
-<div>CSS</div>
-<div>JavaScript</div>
-<div>Python</div>
-<div>Photoshop</div>
-
-</div>
-
-</section>
-
-<section id="projects" class="card">
-
-<h2>🎨 ผลงาน</h2>
-
-<div class="project">
-
-<img src="images/project1.jpg">
-
-<h3>Project 1</h3>
-
-<p>เว็บไซต์ร้านกาแฟ</p>
-
-</div>
-
-<div class="project">
-
-<img src="images/project1.jpg">
-
-<h3>Project 2</h3>
-
-<p>Portfolio Website</p>
-
-</div>
-
-</section>
-
-<section id="contact" class="card">
-
-<h2>📞 ติดต่อ</h2>
-
-<p>Email : example@gmail.com</p>
-
-<p>Facebook : Your Name</p>
-
-<p>GitHub : github.com/yourname</p>
-
-</section>
-
-<footer>
-
-Made with ❤️ by Me
-
-</footer>
-
-<script src="script.js"></script>
-
 </body>
 </html>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Kanit',sans-serif;
-}
-
-body{
-
-background:linear-gradient(135deg,#FFE4F2,#FFF8DC);
-
-color:#444;
-
-}
-
-header{
-
-background:white;
-
-padding:20px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-position:sticky;
-
-top:0;
-
-box-shadow:0 3px 10px rgba(0,0,0,.1);
-
-}
-
-nav a{
-
-text-decoration:none;
-
-margin:10px;
-
-color:#ff5fa2;
-
-font-weight:bold;
-
-}
-
-nav a:hover{
-
-color:#ff1493;
-
-}
-
-.hero{
-
-text-align:center;
-
-padding:60px;
-
-}
-
-.profile{
-
-width:180px;
-
-height:180px;
-
-border-radius:50%;
-
-border:6px solid white;
-
-box-shadow:0 0 20px pink;
-
-}
-
-.hero h2{
-
-margin-top:20px;
-
-font-size:40px;
-
-}
-
-.hero p{
-
-margin:20px;
-
-}
-
-button{
-
-padding:12px 25px;
-
-background:#ff69b4;
-
-border:none;
-
-color:white;
-
-border-radius:30px;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-button:hover{
-
-transform:scale(1.1);
-
-background:#ff1493;
-
-}
-
-.card{
-
-width:85%;
-
-margin:auto;
-
-margin-top:40px;
-
-background:white;
-
-padding:30px;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-
-}
-
-.skills{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-
-gap:15px;
-
-margin-top:20px;
-
-}
-
-.skills div{
-
-background:#ffd6eb;
-
-padding:15px;
-
-border-radius:15px;
-
-text-align:center;
-
-font-weight:bold;
-
-}
-
-.project{
-
-margin-top:30px;
-
-}
-
-.project img{
-
-width:100%;
-
-border-radius:15px;
-
-}
-
-footer{
-
-margin-top:50px;
-
-text-align:center;
-
-padding:30px;
-
-color:#666;
-
-}
-function hello(){
-
-alert("ขอบคุณที่เข้ามาชม Portfolio ของฉัน 💖");
-
-}
