@@ -95,3 +95,344 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+
+<title>ผลงาน</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html">🏠 หน้าแรก</a>
+
+</nav>
+
+<h1 class="title">ผลงาน</h1>
+
+<div class="grid">
+
+<div class="work">
+
+<img src="images/work1.jpg">
+
+<h3>ผลงานที่ 1</h3>
+
+<p>รายละเอียด</p>
+
+</div>
+
+<div class="work">
+
+<img src="images/work2.jpg">
+
+<h3>ผลงานที่ 2</h3>
+
+<p>รายละเอียด</p>
+
+</div>
+
+<div class="work">
+
+<img src="images/work3.jpg">
+
+<h3>ผลงานที่ 3</h3>
+
+<p>รายละเอียด</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Gallery</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<h1 class="title">My Gallery</h1>
+
+<div class="gallery">
+
+<img src="images/work1.jpg">
+
+<img src="images/work2.jpg">
+
+<img src="images/work3.jpg">
+
+<img src="images/profile.jpg">
+
+</div>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Contact</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<section class="card">
+
+<h1>ติดต่อฉัน</h1>
+
+<p>📧 Email : your@email.com</p>
+
+<p>📱 โทร : 000-0000000</p>
+
+<p>💙 Facebook</p>
+
+<p>💗 Instagram</p>
+
+</section>
+
+</body>
+
+</html>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Kanit;
+}
+
+body{
+
+background:linear-gradient(135deg,#ffd6ec,#d7f0ff);
+
+color:#444;
+
+}
+
+nav{
+
+background:white;
+
+display:flex;
+
+justify-content:space-between;
+
+padding:15px 50px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:25px;
+
+list-style:none;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:#ff69b4;
+
+font-weight:bold;
+
+}
+
+header{
+
+text-align:center;
+
+padding:80px;
+
+}
+
+.profile{
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:8px solid white;
+
+box-shadow:0 10px 30px pink;
+
+}
+
+.btn{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 30px;
+
+background:#ff99cc;
+
+color:white;
+
+border-radius:30px;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:#66cfff;
+
+}
+
+.card{
+
+background:white;
+
+width:80%;
+
+margin:50px auto;
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+}
+
+.title{
+
+text-align:center;
+
+margin:40px;
+
+color:#ff69b4;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+padding:30px;
+
+}
+
+.work{
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+transition:.3s;
+
+}
+
+.work:hover{
+
+transform:translateY(-10px);
+
+}
+
+.work img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+}
+
+.work h3{
+
+padding:15px;
+
+}
+
+.work p{
+
+padding:0 15px 20px;
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+padding:40px;
+
+}
+
+.gallery img{
+
+width:100%;
+
+border-radius:20px;
+
+transition:.3s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+console.log("Welcome to My Portfolio");
+
+const btn=document.querySelector(".btn");
+
+if(btn){
+
+btn.addEventListener("click",()=>{
+
+alert("ยินดีต้อนรับเข้าสู่ Portfolio 💖");
+
+});
+
+}
