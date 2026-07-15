@@ -1,288 +1,294 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Architecture Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | ชื่อของคุณ</title>
 
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Prompt',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f4f4f4;
+color:#333;
+}
+
+nav{
+position:fixed;
+width:100%;
+background:#111;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:30px;
+z-index:999;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#FFD369;
+}
+
+section{
+min-height:100vh;
+padding:100px 10%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.hero{
+background:linear-gradient(135deg,#202020,#444);
+color:white;
+text-align:center;
+}
+
+.hero img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+margin:20px auto;
+border:5px solid white;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:20px;
+margin-top:15px;
+}
+
+h2{
+font-size:36px;
+margin-bottom:20px;
+color:#222;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+margin-top:20px;
+}
+
+.timeline{
+border-left:4px solid #444;
+padding-left:20px;
+}
+
+.timeline div{
+margin-bottom:20px;
+}
+
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.work{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.work:hover{
+transform:translateY(-8px);
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+button{
+padding:12px 25px;
+background:#222;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#444;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:36px;
+}
+
+nav{
+gap:15px;
+font-size:14px;
+}
+
+}
+</style>
+
 </head>
-
 <body>
 
 <nav>
-    <a href="index.html">หน้าหลัก</a>
-    <a href="profile.html">ประวัติส่วนตัว</a>
-    <a href="education.html">การศึกษา</a>
-    <a href="works.html">ผลงาน</a>
-    <a href="certificates.html">เกียรติบัตร</a>
+<a href="#home">หน้าหลัก</a>
+<a href="#about">แนะนำตัว</a>
+<a href="#education">การศึกษา</a>
+<a href="#portfolio">ผลงาน</a>
+<a href="#contact">ติดต่อ</a>
 </nav>
 
+<section id="home" class="hero">
 
-<div class="container">
+<img src="https://via.placeholder.com/180" alt="Profile">
 
-    <h1>🌸 My Architecture Portfolio 🌸</h1>
+<h1>ชื่อ - นามสกุล</h1>
 
-    <img class="profile-img" src="profile.jpg">
+<p>Portfolio สำหรับสมัครคณะสถาปัตยกรรม</p>
 
-    <h2>แฟ้มสะสมผลงาน คณะสถาปัตยกรรมศาสตร์</h2>
+<button onclick="scrollToAbout()">
+เริ่มต้น
+</button>
 
-    <p>
-        สวัสดีค่ะ/ครับ ยินดีต้อนรับเข้าสู่ Portfolio ของฉัน
-        เว็บไซต์นี้จัดทำขึ้นเพื่อใช้สมัครเข้าศึกษาต่อ
-        คณะสถาปัตยกรรมศาสตร์
-    </p>
+</section>
 
+<section id="about">
 
-    <div class="card">
+<h2>แนะนำตัว</h2>
 
-        <h2>เกี่ยวกับฉัน</h2>
+<div class="card">
 
-        <p>
-            ชื่อ : ..................................
-        </p>
+<p>
 
-        <p>
-            ความสนใจ : การออกแบบ สถาปัตยกรรม และศิลปะ
-        </p>
+สวัสดีครับ/ค่ะ
 
-    </div>
+ผม/ดิฉันมีความสนใจด้านการออกแบบ งานสถาปัตยกรรม การสร้างสรรค์พื้นที่ และการแก้ไขปัญหาผ่านการออกแบบ มีความตั้งใจที่จะศึกษาต่อในคณะสถาปัตยกรรม เพื่อพัฒนาทักษะและนำความคิดสร้างสรรค์มาสร้างผลงานที่มีคุณค่า
 
-
-    <div class="gallery">
-
-        <img src="work1.jpg">
-        <img src="work2.jpg">
-        <img src="work3.jpg">
-
-    </div>
-
+</p>
 
 </div>
 
+</section>
+
+<section id="education">
+
+<h2>ประวัติการศึกษา</h2>
+
+<div class="card timeline">
+
+<div>
+
+<h3>มัธยมศึกษาตอนต้น</h3>
+
+<p>โรงเรียน........</p>
+
+</div>
+
+<div>
+
+<h3>มัธยมศึกษาตอนปลาย</h3>
+
+<p>โรงเรียน........</p>
+
+<p>แผนการเรียน........</p>
+
+<p>GPAX : 3.xx</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio">
+
+<h2>ผลงานและกิจกรรม</h2>
+
+<div class="portfolio">
+
+<div class="work">
+<h3>โครงการออกแบบบ้าน</h3>
+<p>SketchUp / AutoCAD</p>
+</div>
+
+<div class="work">
+<h3>ประกวดออกแบบ</h3>
+<p>การแข่งขันด้านสถาปัตยกรรม</p>
+</div>
+
+<div class="work">
+<h3>กิจกรรมจิตอาสา</h3>
+<p>ออกแบบพื้นที่สาธารณะ</p>
+</div>
+
+<div class="work">
+<h3>ภาพวาด Perspective</h3>
+<p>งานวาดมือและ Digital</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>ข้อมูลติดต่อ</h2>
+
+<div class="card">
+
+<p><b>ชื่อ :</b> ชื่อ-นามสกุล</p>
+
+<p><b>โทร :</b> 08x-xxx-xxxx</p>
+
+<p><b>Email :</b> your@email.com</p>
+
+<p><b>Facebook :</b> Your Name</p>
+
+<p><b>Instagram :</b> @yourname</p>
+
+</div>
+
+</section>
 
 <footer>
-    Made with 💗 & ☁️
+
+© 2026 Portfolio | ชื่อของคุณ
+
 </footer>
 
-
-</body>
-
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>My Architecture Portfolio</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<nav>
-<a href="index.html">หน้าหลัก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">การศึกษา</a>
-<a href="works.html">ผลงาน</a>
-<a href="certificates.html">เกียรติบัตร</a>
-</nav>
-
-
-<div class="container">
-
-<h1>🌸 My Architecture Portfolio 🌸</h1>
-
-<img class="profile-img" src="profile.jpg">
-
-<h2 align="center">
-Portfolio สำหรับสมัครคณะสถาปัตยกรรมศาสตร์
-</h2>
-
-<p align="center">
-สวัสดีค่ะ/ครับ ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานของฉัน  
-จัดทำขึ้นเพื่อแสดงตัวตน ความสามารถ และความสนใจด้านงานออกแบบ
-</p>
-
-</div>
-
-
-<footer>
-Made with 💗 & ☁️
-</footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Profile</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<nav>
-<a href="index.html">หน้าหลัก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">การศึกษา</a>
-<a href="works.html">ผลงาน</a>
-<a href="certificates.html">เกียรติบัตร</a>
-</nav>
-
-
-<div class="container">
-
-<h1>💗 ประวัติส่วนตัว</h1>
-
-<div class="card">
-
-<p>
-ชื่อ : ..................................
-</p>
-
-<p>
-วันเกิด : ..................................
-</p>
-
-<p>
-งานอดิเรก : วาดรูป ออกแบบ สร้างโมเดล
-</p>
-
-<p>
-ความสนใจ : สถาปัตยกรรม การออกแบบ และศิลปะ
-</p>
-
-</div>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Education</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<nav>
-<a href="index.html">หน้าหลัก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">การศึกษา</a>
-<a href="works.html">ผลงาน</a>
-<a href="certificates.html">เกียรติบัตร</a>
-</nav>
-
-
-<div class="container">
-
-<h1>🎓 ประวัติการศึกษา</h1>
-
-
-<div class="card">
-
-<h2>ระดับมัธยมศึกษา</h2>
-
-<p>
-โรงเรียน : ..................................
-</p>
-
-<p>
-แผนการเรียน : ..................................
-</p>
-
-<p>
-เกรดเฉลี่ย : ..................................
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h2>เป้าหมายในอนาคต</h2>
-
-<p>
-ต้องการศึกษาต่อคณะสถาปัตยกรรมศาสตร์
-เพื่อพัฒนาทักษะด้านการออกแบบและสร้างสรรค์ผลงาน
-</p>
-
-</div>
-
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Works</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<nav>
-<a href="index.html">หน้าหลัก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">การศึกษา</a>
-<a href="works.html">ผลงาน</a>
-<a href="certificates.html">เกียรติบัตร</a>
-</nav>
-
-
-<div class="container">
-
-<h1>🎨 ผลงานของฉัน</h1>
-
-
-<div class="gallery">
-
-<img src="work1.jpg">
-<img src="work2.jpg">
-<img src="work3.jpg">
-
-</div>
-
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Certificates</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<nav>
-<a href="index.html">หน้าหลัก</a>
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="education.html">การศึกษา</a>
-<a href="works.html">ผลงาน</a>
-<a href="certificates.html">เกียรติบัตร</a>
-</nav>
-
-
-<div class="container">
-
-<h1>🏆 เกียรติบัตร</h1>
-
-
-<div class="gallery">
-
-<img src="certificate1.jpg">
-<img src="certificate2.jpg">
-
-</div>
-
-
-</div>
+<script>
+
+function scrollToAbout(){
+document.getElementById("about").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+</script>
 
 </body>
 </html>
