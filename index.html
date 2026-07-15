@@ -1,256 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Itim', cursive;
+}
+
+body {
+    background: linear-gradient(135deg, #ffd6e8, #c9f0ff);
+    color: #555;
+}
+
+nav {
+    background: #ff9fcf;
+    padding: 15px;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #b8ecff;
+}
+
+.container {
+    width: 85%;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.8);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(255,120,180,0.3);
+}
+
+h1 {
+    color: #ff6fae;
+    text-align: center;
+    font-size: 45px;
+}
+
+h2 {
+    color: #55bde8;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+    border: 8px solid #ffb6d9;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px #ffc4df;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    margin: 15px;
+    border-radius: 20px;
+    border: 5px solid #bcecff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Portfolio</title>
+<title>My Architecture Portfolio</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <nav>
-<a href="index.html">🏠 Home</a>
-<a href="about.html">👩 About</a>
-<a href="projects.html">🏛 Projects</a>
-<a href="gallery.html">🖼 Gallery</a>
-<a href="certificates.html">🏆 Certificates</a>
-<a href="contact.html">📞 Contact</a>
+<a href="index.html">หน้าหลัก</a>
+<a href="profile.html">ประวัติส่วนตัว</a>
+<a href="education.html">การศึกษา</a>
+<a href="works.html">ผลงาน</a>
+<a href="certificates.html">เกียรติบัตร</a>
 </nav>
 
-<div class="hero">
 
-<img src="images/profile.jpg" class="profile">
+<div class="container">
 
-<h1>Portfolio</h1>
+<h1>🌸 My Architecture Portfolio 🌸</h1>
 
-<p>Architecture Student</p>
+<img class="profile-img" src="profile.jpg">
 
-<a class="btn" href="about.html">เข้าสู่ Portfolio</a>
+<h2 align="center">
+Portfolio สำหรับสมัครคณะสถาปัตยกรรมศาสตร์
+</h2>
 
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>About Me</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="projects.html">Projects</a>
-<a href="gallery.html">Gallery</a>
-</nav>
-
-<div class="card">
-
-<h1>About Me</h1>
-
-<p>
-
-ชื่อ-นามสกุล...
-
-กำลังศึกษาระดับชั้น...
-
-มีความสนใจด้านสถาปัตยกรรม
-และการออกแบบพื้นที่
-
+<p align="center">
+สวัสดีค่ะ/ครับ ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานของฉัน  
+จัดทำขึ้นเพื่อแสดงตัวตน ความสามารถ และความสนใจด้านงานออกแบบ
 </p>
 
 </div>
 
+
+<footer>
+Made with 💗 & ☁️
+</footer>
+
 </body>
 </html>
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Projects</title>
+<title>Profile</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
+<a href="index.html">หน้าหลัก</a>
+<a href="profile.html">ประวัติส่วนตัว</a>
+<a href="education.html">การศึกษา</a>
+<a href="works.html">ผลงาน</a>
+<a href="certificates.html">เกียรติบัตร</a>
 </nav>
 
-<h1>My Projects</h1>
 
-<div class="grid">
+<div class="container">
 
-<div class="project">
-<img src="images/project1.jpg">
-<h2>Modern House</h2>
-</div>
-
-<div class="project">
-<img src="images/project2.jpg">
-<h2>Community Center</h2>
-</div>
-
-<div class="project">
-<img src="images/project3.jpg">
-<h2>Interior Design</h2>
-</div>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>Gallery</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<h1>Gallery</h1>
-
-<div class="gallery">
-
-<img src="images/project1.jpg">
-
-<img src="images/project2.jpg">
-
-<img src="images/project3.jpg">
-
-<img src="images/project4.jpg">
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>Certificates</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<h1>Certificates</h1>
-
-<div class="gallery">
-
-<img src="images/certificate1.jpg">
-
-<img src="images/certificate2.jpg">
-
-<img src="images/certificate3.jpg">
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>Contact</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<h1>💗 ประวัติส่วนตัว</h1>
 
 <div class="card">
 
-<h1>Contact</h1>
+<p>
+ชื่อ : ..................................
+</p>
 
-<p>📱 08x-xxx-xxxx</p>
+<p>
+วันเกิด : ..................................
+</p>
 
-<p>📧 example@email.com</p>
+<p>
+งานอดิเรก : วาดรูป ออกแบบ สร้างโมเดล
+</p>
 
-<p>📷 Instagram : yourname</p>
+<p>
+ความสนใจ : สถาปัตยกรรม การออกแบบ และศิลปะ
+</p>
+
+</div>
 
 </div>
 
 </body>
 </html>
-body{
-margin:0;
-font-family:Kanit,sans-serif;
-background:linear-gradient(135deg,#FFE6F2,#DDF3FF);
-}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Education</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-nav{
-background:white;
-padding:20px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
+<body>
 
-nav a{
-margin:20px;
-text-decoration:none;
-color:#ff5ca7;
-font-weight:bold;
-}
+<nav>
+<a href="index.html">หน้าหลัก</a>
+<a href="profile.html">ประวัติส่วนตัว</a>
+<a href="education.html">การศึกษา</a>
+<a href="works.html">ผลงาน</a>
+<a href="certificates.html">เกียรติบัตร</a>
+</nav>
 
-.hero{
-text-align:center;
-padding:80px;
-}
 
-.profile{
-width:180px;
-border-radius:50%;
-border:8px solid white;
-}
+<div class="container">
 
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 35px;
-background:#ff79b4;
-color:white;
-border-radius:40px;
-text-decoration:none;
-}
+<h1>🎓 ประวัติการศึกษา</h1>
 
-.card{
-width:80%;
-margin:auto;
-margin-top:50px;
-background:white;
-padding:40px;
-border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-}
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-padding:40px;
-}
+<div class="card">
 
-.project{
-background:white;
-padding:20px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-}
+<h2>ระดับมัธยมศึกษา</h2>
 
-.project img{
-width:100%;
-border-radius:15px;
-}
+<p>
+โรงเรียน : ..................................
+</p>
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:40px;
-}
+<p>
+แผนการเรียน : ..................................
+</p>
 
-.gallery img{
-width:100%;
-border-radius:20px;
-}
+<p>
+เกรดเฉลี่ย : ..................................
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>เป้าหมายในอนาคต</h2>
+
+<p>
+ต้องการศึกษาต่อคณะสถาปัตยกรรมศาสตร์
+เพื่อพัฒนาทักษะด้านการออกแบบและสร้างสรรค์ผลงาน
+</p>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Works</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">หน้าหลัก</a>
+<a href="profile.html">ประวัติส่วนตัว</a>
+<a href="education.html">การศึกษา</a>
+<a href="works.html">ผลงาน</a>
+<a href="certificates.html">เกียรติบัตร</a>
+</nav>
+
+
+<div class="container">
+
+<h1>🎨 ผลงานของฉัน</h1>
+
+
+<div class="gallery">
+
+<img src="work1.jpg">
+<img src="work2.jpg">
+<img src="work3.jpg">
+
+</div>
+
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Certificates</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">หน้าหลัก</a>
+<a href="profile.html">ประวัติส่วนตัว</a>
+<a href="education.html">การศึกษา</a>
+<a href="works.html">ผลงาน</a>
+<a href="certificates.html">เกียรติบัตร</a>
+</nav>
+
+
+<div class="container">
+
+<h1>🏆 เกียรติบัตร</h1>
+
+
+<div class="gallery">
+
+<img src="certificate1.jpg">
+<img src="certificate2.jpg">
+
+</div>
+
+
+</div>
+
+</body>
+</html>
