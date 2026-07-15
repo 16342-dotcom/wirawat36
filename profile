@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ข้อมูลส่วนตัว | พอร์ตโฟลิโอสถาปัตยกรรม</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --ink:#5C3A45;
+  --paper:#FFF6F8;
+  --card:#FFFFFF;
+  --rose:#FF8FAB;
+  --rose-deep:#D6336C;
+  --rose-soft:#FFE3ED;
+  --steel:#9A7684;
+  --line:#FFD3E1;
+  --shadow:0 14px 32px rgba(214,51,108,0.14);
+  --radius:22px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; min-height:100vh;
+  background:linear-gradient(180deg,#FFF9FB 0%, var(--paper) 100%);
+  color:var(--ink); font-family:'Prompt',sans-serif; overflow-x:hidden; position:relative;
+}
+body::before{
+  content:""; position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(255,143,171,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,143,171,0.07) 1px, transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none; z-index:0;
+}
+body::after{
+  content:""; position:fixed; inset:0;
+  background: radial-gradient(ellipse at 15% 0%, rgba(255,184,206,0.25), transparent 55%),
+              radial-gradient(ellipse at 90% 100%, rgba(255,143,171,0.20), transparent 55%);
+  pointer-events:none; z-index:0;
+}
+
+h1,h2,h3,.logo{ font-family:'Mali',cursive; font-weight:700; color:var(--rose-deep); }
+a{ color:inherit; text-decoration:none; }
+
+/* floating cute drafting-tool + hearts background */
+.bg-decor{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.bg-decor svg{ position:absolute; opacity:.55; filter:drop-shadow(0 6px 10px rgba(214,51,108,0.14)); animation:drift 18s ease-in-out infinite; }
+.f1{top:8%; left:4%; width:64px; animation-duration:16s;}
+.f2{top:60%; left:88%; width:52px; animation-duration:20s; animation-delay:-4s;}
+.f3{top:80%; left:9%; width:58px; animation-duration:22s; animation-delay:-9s;}
+.f4{top:18%; left:82%; width:46px; animation-duration:14s; animation-delay:-2s;}
+.f5{top:42%; left:48%; width:38px; animation-duration:25s; animation-delay:-12s; opacity:.35;}
+.f6{top:6%; left:60%; width:34px; animation-duration:19s; animation-delay:-6s; opacity:.45;}
+@keyframes drift{
+  0%,100%{ transform:translate(0,0) rotate(0deg); }
+  25%{ transform:translate(16px,-22px) rotate(8deg); }
+  50%{ transform:translate(-10px,10px) rotate(-6deg); }
+  75%{ transform:translate(14px,18px) rotate(5deg); }
+}
+
+header{ position:sticky; top:0; z-index:10; backdrop-filter:blur(10px); background:rgba(255,246,248,0.78); border-bottom:1px solid var(--line); }
+.nav-wrap{ max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
+.logo{ font-size:1.4rem; }
+.logo span{ color:var(--rose); }
+nav ul{ list-style:none; display:flex; gap:6px; margin:0; padding:0; }
+nav a{ display:inline-block; padding:8px 16px; border-radius:999px; font-size:.95rem; font-weight:500; color:var(--ink); transition:all .25s ease; }
+nav a:hover, nav a:focus-visible{ background:var(--rose-soft); color:var(--rose-deep); transform:translateY(-2px); }
+nav a.active{ background:var(--rose); color:#fff; box-shadow:var(--shadow); }
+.nav-toggle{ display:none; }
+
+main{ position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:48px 24px 90px; }
+.sheet-no{ display:inline-block; font-size:.8rem; letter-spacing:.04em; color:var(--rose-deep); background:var(--rose-soft); padding:5px 14px; border-radius:999px; margin-bottom:14px; }
+.section-title{ font-size:2rem; margin:0 0 8px; }
+.section-sub{ color:var(--steel); margin:0 0 36px; font-size:1rem; max-width:600px; }
+
+.card{ background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--line); padding:28px; position:relative; transition:transform .3s ease, box-shadow .3s ease; }
+.card:hover{ transform:translateY(-4px); box-shadow:0 18px 42px rgba(214,51,108,0.20); }
+
+.btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 26px; border-radius:999px; background:var(--rose); color:#fff; font-weight:600; border:none; cursor:pointer; box-shadow:var(--shadow); transition:transform .25s ease, background .25s ease; }
+.btn:hover{ background:var(--rose-deep); transform:translateY(-3px) scale(1.03); }
+.btn.ghost{ background:transparent; color:var(--rose-deep); border:2px solid var(--rose); box-shadow:none; }
+.btn.ghost:hover{ background:var(--rose-soft); }
+
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+footer{ position:relative; z-index:1; text-align:center; padding:28px 20px 40px; color:var(--steel); font-size:.85rem; }
+
+@media (max-width:720px){
+  nav ul{
+    position:fixed; top:0; right:0; height:100vh; width:72%; flex-direction:column;
+    background:#fff; padding:90px 24px; gap:10px; transform:translateX(100%);
+    transition:transform .3s ease; box-shadow:-10px 0 30px rgba(0,0,0,.08);
+  }
+  nav ul.open{ transform:translateX(0); }
+  .nav-toggle{ display:block; background:none; border:none; font-size:1.6rem; color:var(--rose-deep); cursor:pointer; z-index:20; }
+  main > section[style*="grid-template-columns: 240px"],
+  main section[style*="grid-template-columns:1fr 1.2fr"],
+  main section[style*="grid-template-columns:1fr 1fr"]{ grid-template-columns:1fr !important; }
+}
+@media (prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important; } }
+</style>
+</head>
+<body>
+<div class="bg-decor" aria-hidden="true">
+  <svg class="f1" viewBox="0 0 60 60"><rect x="26" y="4" width="8" height="40" rx="2" fill="#FFB8CE"/><polygon points="26,44 34,44 30,58" fill="#FF6F91"/><rect x="26" y="4" width="8" height="8" fill="#FF6F91"/></svg>
+  <svg class="f2" viewBox="0 0 60 60"><circle cx="30" cy="10" r="5" fill="#FF6F91"/><line x1="30" y1="15" x2="16" y2="54" stroke="#FFB8CE" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="15" x2="44" y2="54" stroke="#D6336C" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="54" r="2.5" fill="#D6336C"/></svg>
+  <svg class="f3" viewBox="0 0 70 20"><rect x="2" y="2" width="66" height="16" rx="3" fill="#FFE3ED" stroke="#FFB8CE" stroke-width="2"/><line x1="12" y1="2" x2="12" y2="9" stroke="#FF6F91" stroke-width="2"/><line x1="24" y1="2" x2="24" y2="9" stroke="#FF6F91" stroke-width="2"/><line x1="36" y1="2" x2="36" y2="9" stroke="#FF6F91" stroke-width="2"/><line x1="48" y1="2" x2="48" y2="9" stroke="#FF6F91" stroke-width="2"/><line x1="60" y1="2" x2="60" y2="9" stroke="#FF6F91" stroke-width="2"/></svg>
+  <svg class="f4" viewBox="0 0 60 60"><polygon points="4,56 56,56 4,4" fill="#FFE3ED" stroke="#FFB8CE" stroke-width="2.5"/></svg>
+  <svg class="f5" viewBox="0 0 60 32"><path d="M4 30 A26 26 0 0 1 56 30" fill="none" stroke="#FF6F91" stroke-width="3"/><line x1="4" y1="30" x2="56" y2="30" stroke="#FFB8CE" stroke-width="3"/></svg>
+  <svg class="f6" viewBox="0 0 32 28"><path d="M16 26 C4 18 2 8 10 4 C14 2 16 6 16 6 C16 6 18 2 22 4 C30 8 28 18 16 26 Z" fill="#FF9DB6"/></svg>
+</div>
+<header>
+  <div class="nav-wrap">
+    <a class="logo" href="1home.html">พอร์ต<span>โฟลิโอ</span> 🏛️</a>
+    <button class="nav-toggle" aria-label="เปิดเมนู">☰</button>
+    <ul>
+      <li><a href="1home.html">หน้าหลัก</a></li>
+      <li><a href="2profile.html" class="active">ข้อมูลส่วนตัว</a></li>
+      <li><a href="3education.html">ประวัติการศึกษา</a></li>
+      <li><a href="4award.html">ผลงาน & เกียรติบัตร</a></li>
+      <li><a href="5contact.html">ติดต่อ</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <div class="sheet-no reveal">A-02 · ข้อมูลส่วนตัว</div>
+  <h1 class="section-title reveal">ข้อมูลส่วนตัว</h1>
+  <p class="section-sub reveal">รู้จักตัวตน แนวคิด และแรงบันดาลใจเบื้องหลังงานออกแบบของผม</p>
+
+  <section style="display:grid; grid-template-columns:240px 1fr; gap:28px; align-items:start;" class="reveal">
+    <div class="card" style="text-align:center;">
+      <div style="width:170px; height:170px; border-radius:var(--radius); margin:0 auto 16px; background:linear-gradient(150deg,var(--rose-soft),var(--rose)); display:flex; align-items:center; justify-content:center; font-size:2.6rem; border:3px solid var(--ink);">📷</div>
+      <p style="color:var(--steel); font-size:.82rem; margin:0;">[ใส่รูปโปรไฟล์ตรงนี้]</p>
+      <h3 style="margin:14px 0 2px; font-size:1.1rem;">[ชื่อ-นามสกุล]</h3>
+      <p style="color:var(--steel); font-size:.88rem; margin:0;">ชื่อเล่น: [ชื่อเล่น]</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0; font-size:1.1rem;">ข้อมูลทั่วไป</h3>
+      <table style="width:100%; border-collapse:collapse; font-size:.94rem;">
+        <tbody>
+          <tr><td style="padding:9px 0; color:var(--steel); width:40%;">วัน/เดือน/ปีเกิด</td><td style="padding:9px 0;">[วว/ดด/ปปปป]</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 0; color:var(--steel);">โรงเรียนปัจจุบัน</td><td style="padding:9px 0;">[ชื่อโรงเรียน]</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 0; color:var(--steel);">ระดับชั้น</td><td style="padding:9px 0;">มัธยมศึกษาปีที่ [6] แผนการเรียน [วิทย์-คณิต]</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 0; color:var(--steel);">คณะ/สาขาที่สมัคร</td><td style="padding:9px 0;">คณะสถาปัตยกรรมศาสตร์ สาขา [ระบุสาขา]</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 0; color:var(--steel);">คติประจำใจ</td><td style="padding:9px 0;">“[ใส่คติประจำใจของคุณ]”</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section style="margin-top:26px;" class="card reveal">
+    <h3 style="margin-top:0; font-size:1.1rem;">แรงบันดาลใจสู่เส้นทางสถาปัตยกรรม</h3>
+    <p style="color:var(--ink); line-height:1.8; margin:0;">
+      [เล่าถึงจุดเริ่มต้นที่ทำให้สนใจงานสถาปัตยกรรม เช่น อาคารหรือพื้นที่ที่ประทับใจ แนวคิดการออกแบบที่เชื่อมั่น
+      และเป้าหมายในอนาคต]
+    </p>
+  </section>
+
+  <section style="margin-top:26px; display:grid; grid-template-columns:1fr 1fr; gap:22px;">
+    <div class="card reveal">
+      <h3 style="margin-top:0; font-size:1.05rem;">ทักษะความสามารถ</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span class="sheet-no">✏️ ร่างแบบด้วยมือ</span>
+        <span class="sheet-no">SketchUp</span>
+        <span class="sheet-no">AutoCAD</span>
+        <span class="sheet-no">การถ่ายภาพ</span>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h3 style="margin-top:0; font-size:1.05rem;">ความสนใจส่วนตัว</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span class="sheet-no">🏛️ สถาปัตยกรรม</span>
+        <span class="sheet-no">⚽ กีฬา</span>
+        <span class="sheet-no">🎮 เกม</span>
+        <span class="sheet-no">📷 ถ่ายภาพเมือง</span>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© 2026 [ชื่อ-นามสกุล] · พอร์ตโฟลิโอสมัครคณะสถาปัตยกรรมศาสตร์</footer>
+<script>
+(function(){
+  var toggle = document.querySelector('.nav-toggle');
+  var navList = document.querySelector('nav ul');
+  if (toggle && navList) {
+    toggle.addEventListener('click', function(){ navList.classList.toggle('open'); });
+    navList.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ navList.classList.remove('open'); });
+    });
+  }
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
+
