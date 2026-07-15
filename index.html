@@ -4,193 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | ชื่อของคุณ</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Prompt',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#f4f4f4;
-color:#333;
-}
-
-nav{
-position:fixed;
-width:100%;
-background:#111;
-padding:15px;
-display:flex;
-justify-content:center;
-gap:30px;
-z-index:999;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-weight:500;
-transition:.3s;
-}
-
-nav a:hover{
-color:#FFD369;
-}
-
-section{
-min-height:100vh;
-padding:100px 10%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-}
-
-.hero{
-background:linear-gradient(135deg,#202020,#444);
-color:white;
-text-align:center;
-}
-
-.hero img{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-margin:20px auto;
-border:5px solid white;
-}
-
-.hero h1{
-font-size:48px;
-}
-
-.hero p{
-font-size:20px;
-margin-top:15px;
-}
-
-h2{
-font-size:36px;
-margin-bottom:20px;
-color:#222;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-margin-top:20px;
-}
-
-.timeline{
-border-left:4px solid #444;
-padding-left:20px;
-}
-
-.timeline div{
-margin-bottom:20px;
-}
-
-.portfolio{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.work{
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-transition:.3s;
-}
-
-.work:hover{
-transform:translateY(-8px);
-}
-
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-button{
-padding:12px 25px;
-background:#222;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-margin-top:20px;
-}
-
-button:hover{
-background:#444;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:36px;
-}
-
-nav{
-gap:15px;
-font-size:14px;
-}
-
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<nav>
-<a href="#home">หน้าหลัก</a>
-<a href="#about">แนะนำตัว</a>
-<a href="#education">การศึกษา</a>
-<a href="#portfolio">ผลงาน</a>
-<a href="#contact">ติดต่อ</a>
-</nav>
+<header>
+    <h1>PORTFOLIO</h1>
+    <nav>
+        <a href="#home">หน้าหลัก</a>
+        <a href="#about">แนะนำตัว</a>
+        <a href="#education">การศึกษา</a>
+        <a href="#portfolio">ผลงาน</a>
+        <a href="#contact">ติดต่อ</a>
+    </nav>
+</header>
 
-<section id="home" class="hero">
-
-<img src="https://via.placeholder.com/180" alt="Profile">
-
-<h1>ชื่อ - นามสกุล</h1>
-
-<p>Portfolio สำหรับสมัครคณะสถาปัตยกรรม</p>
-
-<button onclick="scrollToAbout()">
-เริ่มต้น
-</button>
-
+<section class="hero" id="home">
+    <img src="images/profile.jpg" alt="">
+    <h2>สวัสดีค่ะ 👋</h2>
+    <h1>ชื่อ - นามสกุล</h1>
+    <p>Portfolio สำหรับสมัครเรียนคณะสถาปัตยกรรม</p>
 </section>
 
 <section id="about">
+    <h2>แนะนำตัว</h2>
 
-<h2>แนะนำตัว</h2>
+    <div class="card">
+        <p>
+        ชื่อ : ..........................................
+        </p>
 
-<div class="card">
+        <p>
+        อายุ : ........ ปี
+        </p>
 
-<p>
+        <p>
+        โรงเรียน : ........................................
+        </p>
 
-สวัสดีครับ/ค่ะ
+        <p>
+        ความสนใจ :
+        งานออกแบบ อาคาร ภูมิสถาปัตย์ การวาดภาพ
+        การออกแบบภายใน และการสร้างสรรค์ผลงาน
+        </p>
 
-ผม/ดิฉันมีความสนใจด้านการออกแบบ งานสถาปัตยกรรม การสร้างสรรค์พื้นที่ และการแก้ไขปัญหาผ่านการออกแบบ มีความตั้งใจที่จะศึกษาต่อในคณะสถาปัตยกรรม เพื่อพัฒนาทักษะและนำความคิดสร้างสรรค์มาสร้างผลงานที่มีคุณค่า
-
-</p>
-
-</div>
+    </div>
 
 </section>
 
@@ -198,26 +58,21 @@ font-size:14px;
 
 <h2>ประวัติการศึกษา</h2>
 
-<div class="card timeline">
+<div class="timeline">
 
-<div>
-
-<h3>มัธยมศึกษาตอนต้น</h3>
-
-<p>โรงเรียน........</p>
-
+<div class="item">
+<h3>ระดับประถมศึกษา</h3>
+<p>โรงเรียน................................</p>
 </div>
 
-<div>
+<div class="item">
+<h3>ระดับมัธยมศึกษาตอนต้น</h3>
+<p>โรงเรียน................................</p>
+</div>
 
-<h3>มัธยมศึกษาตอนปลาย</h3>
-
-<p>โรงเรียน........</p>
-
-<p>แผนการเรียน........</p>
-
-<p>GPAX : 3.xx</p>
-
+<div class="item">
+<h3>ระดับมัธยมศึกษาตอนปลาย</h3>
+<p>โรงเรียน................................</p>
 </div>
 
 </div>
@@ -228,26 +83,24 @@ font-size:14px;
 
 <h2>ผลงานและกิจกรรม</h2>
 
-<div class="portfolio">
+<div class="gallery">
 
 <div class="work">
-<h3>โครงการออกแบบบ้าน</h3>
-<p>SketchUp / AutoCAD</p>
+<img src="images/work1.jpg">
+<h3>แบบร่างอาคาร</h3>
+<p>Sketch Design</p>
 </div>
 
 <div class="work">
-<h3>ประกวดออกแบบ</h3>
-<p>การแข่งขันด้านสถาปัตยกรรม</p>
+<img src="images/work2.jpg">
+<h3>โมเดลจำลอง</h3>
+<p>Architecture Model</p>
 </div>
 
 <div class="work">
-<h3>กิจกรรมจิตอาสา</h3>
-<p>ออกแบบพื้นที่สาธารณะ</p>
-</div>
-
-<div class="work">
-<h3>ภาพวาด Perspective</h3>
-<p>งานวาดมือและ Digital</p>
+<img src="images/work3.jpg">
+<h3>กิจกรรมค่ายสถาปัตย์</h3>
+<p>Workshop</p>
 </div>
 
 </div>
@@ -260,15 +113,15 @@ font-size:14px;
 
 <div class="card">
 
-<p><b>ชื่อ :</b> ชื่อ-นามสกุล</p>
+<p>📞 08x-xxx-xxxx</p>
 
-<p><b>โทร :</b> 08x-xxx-xxxx</p>
+<p>📧 youremail@gmail.com</p>
 
-<p><b>Email :</b> your@email.com</p>
+<p>📍 จังหวัด.............</p>
 
-<p><b>Facebook :</b> Your Name</p>
+<p>Facebook : Your Name</p>
 
-<p><b>Instagram :</b> @yourname</p>
+<p>Instagram : @yourname</p>
 
 </div>
 
@@ -276,19 +129,9 @@ font-size:14px;
 
 <footer>
 
-© 2026 Portfolio | ชื่อของคุณ
+<p>© 2026 Portfolio | Architecture</p>
 
 </footer>
-
-<script>
-
-function scrollToAbout(){
-document.getElementById("about").scrollIntoView({
-behavior:"smooth"
-});
-}
-
-</script>
 
 </body>
 </html>
