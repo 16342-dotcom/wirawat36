@@ -2,333 +2,255 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Architecture Portfolio</title>
+<title>Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<nav>
+<a href="index.html">🏠 Home</a>
+<a href="about.html">👩 About</a>
+<a href="projects.html">🏛 Projects</a>
+<a href="gallery.html">🖼 Gallery</a>
+<a href="certificates.html">🏆 Certificates</a>
+<a href="contact.html">📞 Contact</a>
+</nav>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Kanit',sans-serif;
-scroll-behavior:smooth;
-}
+<div class="hero">
 
+<img src="images/profile.jpg" class="profile">
+
+<h1>Portfolio</h1>
+
+<p>Architecture Student</p>
+
+<a class="btn" href="about.html">เข้าสู่ Portfolio</a>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="projects.html">Projects</a>
+<a href="gallery.html">Gallery</a>
+</nav>
+
+<div class="card">
+
+<h1>About Me</h1>
+
+<p>
+
+ชื่อ-นามสกุล...
+
+กำลังศึกษาระดับชั้น...
+
+มีความสนใจด้านสถาปัตยกรรม
+และการออกแบบพื้นที่
+
+</p>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Projects</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+</nav>
+
+<h1>My Projects</h1>
+
+<div class="grid">
+
+<div class="project">
+<img src="images/project1.jpg">
+<h2>Modern House</h2>
+</div>
+
+<div class="project">
+<img src="images/project2.jpg">
+<h2>Community Center</h2>
+</div>
+
+<div class="project">
+<img src="images/project3.jpg">
+<h2>Interior Design</h2>
+</div>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Gallery</h1>
+
+<div class="gallery">
+
+<img src="images/project1.jpg">
+
+<img src="images/project2.jpg">
+
+<img src="images/project3.jpg">
+
+<img src="images/project4.jpg">
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Certificates</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Certificates</h1>
+
+<div class="gallery">
+
+<img src="images/certificate1.jpg">
+
+<img src="images/certificate2.jpg">
+
+<img src="images/certificate3.jpg">
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+<h1>Contact</h1>
+
+<p>📱 08x-xxx-xxxx</p>
+
+<p>📧 example@email.com</p>
+
+<p>📷 Instagram : yourname</p>
+
+</div>
+
+</body>
+</html>
 body{
-background:linear-gradient(135deg,#FFE4F3,#DDF4FF);
-overflow-x:hidden;
+margin:0;
+font-family:Kanit,sans-serif;
+background:linear-gradient(135deg,#FFE6F2,#DDF3FF);
 }
 
-/* พื้นหลัง */
-body::before{
-content:"";
-position:fixed;
-width:700px;
-height:700px;
-background:#FFC8E8;
-border-radius:50%;
-top:-250px;
-left:-200px;
-opacity:.35;
-filter:blur(60px);
-z-index:-2;
-}
-
-body::after{
-content:"";
-position:fixed;
-width:650px;
-height:650px;
-background:#BEEBFF;
-border-radius:50%;
-bottom:-220px;
-right:-180px;
-opacity:.4;
-filter:blur(60px);
-z-index:-2;
-}
-
-/* Header */
-header{
+nav{
+background:white;
+padding:20px;
 text-align:center;
-padding:80px 20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+nav a{
+margin:20px;
+text-decoration:none;
+color:#ff5ca7;
+font-weight:bold;
+}
+
+.hero{
+text-align:center;
+padding:80px;
 }
 
 .profile{
 width:180px;
-height:180px;
 border-radius:50%;
 border:8px solid white;
-background:white;
-margin:auto;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-.profile img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-h1{
-font-size:50px;
-color:#ff6ba9;
-margin-top:25px;
-}
-
-.subtitle{
-font-size:22px;
-color:#5dafff;
-margin-top:8px;
-}
-
-.wave{
-font-size:30px;
-animation:wave 2s infinite;
-}
-
-@keyframes wave{
-0%,100%{transform:rotate(0deg);}
-50%{transform:rotate(10deg);}
-}
-
-section{
-max-width:1100px;
-margin:auto;
-padding:50px 20px;
-}
-
-.title{
-font-size:36px;
-color:#ff71b4;
-margin-bottom:30px;
-text-align:center;
-}
-
-/* About */
-.about{
-background:white;
-border-radius:30px;
-padding:35px;
-box-shadow:0 15px 30px rgba(0,0,0,.08);
-line-height:2;
-font-size:18px;
-color:#555;
-}
-
-/* Projects */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:#ff79b4;
+color:white;
+border-radius:40px;
+text-decoration:none;
 }
 
 .card{
+width:80%;
+margin:auto;
+margin-top:50px;
 background:white;
-padding:25px;
+padding:40px;
 border-radius:25px;
-transition:.35s;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-.card:hover{
-transform:translateY(-10px);
-}
-
-.image{
-height:180px;
-border-radius:18px;
-background:linear-gradient(45deg,#FFD6EC,#DDF4FF);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:70px;
-margin-bottom:18px;
-}
-
-.card h3{
-color:#ff6da8;
-margin-bottom:10px;
-}
-
-.card p{
-color:#666;
-line-height:1.8;
-}
-
-/* Skills */
-
-.skills{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
-}
-
-.skill{
-padding:12px 25px;
-background:white;
-border-radius:40px;
-box-shadow:0 8px 18px rgba(0,0,0,.08);
-color:#5baeff;
-font-weight:600;
-}
-
-/* Contact */
-
-.contact{
-background:white;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 padding:40px;
-border-radius:30px;
+}
+
+.project{
+background:white;
+padding:20px;
+border-radius:20px;
 text-align:center;
-box-shadow:0 15px 30px rgba(0,0,0,.08);
+box-shadow:0 10px 20px rgba(0,0,0,.1);
 }
 
-button{
-margin-top:20px;
-padding:15px 35px;
-border:none;
-border-radius:50px;
-background:#ff77b3;
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
+.project img{
+width:100%;
+border-radius:15px;
 }
 
-button:hover{
-background:#67c0ff;
-transform:scale(1.05);
-}
-
-footer{
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 padding:40px;
-text-align:center;
-color:#777;
 }
-</style>
 
-</head>
-<body>
-
-<header>
-
-<div class="profile">
-<img src="https://via.placeholder.com/300x300.png?text=PHOTO">
-</div>
-
-<h1>Portfolio 🎀</h1>
-
-<div class="subtitle">
-Architecture Student
-</div>
-
-<div class="wave">
-☁️ 🌸 💙
-</div>
-
-</header>
-
-<section>
-
-<h2 class="title">
-About Me
-</h2>
-
-<div class="about">
-
-สวัสดีค่ะ ดิฉันมีความสนใจด้านการออกแบบสถาปัตยกรรม
-รักการออกแบบพื้นที่ที่สวยงามและตอบโจทย์การใช้งาน
-ชื่นชอบการวาดภาพ การสร้างโมเดล และการออกแบบอาคาร
-หวังว่าจะได้นำความคิดสร้างสรรค์มาพัฒนาสังคมผ่านงานสถาปัตยกรรมในอนาคต
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">
-My Projects
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<div class="image">🏡</div>
-<h3>Modern House</h3>
-<p>บ้านพักอาศัยสไตล์ Modern Minimal</p>
-</div>
-
-<div class="card">
-<div class="image">🏛️</div>
-<h3>Architecture Design</h3>
-<p>โครงการออกแบบอาคารสาธารณะ</p>
-</div>
-
-<div class="card">
-<div class="image">🛋️</div>
-<h3>Interior</h3>
-<p>งานออกแบบภายในและการจัดพื้นที่</p>
-</div>
-
-<div class="card">
-<div class="image">✏️</div>
-<h3>Sketch</h3>
-<p>Perspective Drawing และภาพร่าง</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">
-Skills
-</h2>
-
-<div class="skills">
-
-<div class="skill">AutoCAD</div>
-<div class="skill">SketchUp</div>
-<div class="skill">Photoshop</div>
-<div class="skill">Illustrator</div>
-<div class="skill">Enscape</div>
-<div class="skill">Model Making</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">
-Contact
-</h2>
-
-<div class="contact">
-
-<h3>ชื่อ-นามสกุล</h3>
-
-<p>โทร : 08x-xxx-xxxx</p>
-
-<p>Email : example@email.com</p>
-
-<button>Download Portfolio</button>
-
-</div>
-
-</section>
-
-<footer>
-
-Made with 💗 & ☁️
-
-</footer>
-
-</body>
-</html>
+.gallery img{
+width:100%;
+border-radius:20px;
+}
