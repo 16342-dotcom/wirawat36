@@ -3,20 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Your Name</title>
 
-<link rel="stylesheet" href="style.css">
+<title>Portfolio | ชื่อของคุณ</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(180deg,#fff8fc,#ffeaf4);
+color:#444;
+}
+
+header{
+background:linear-gradient(135deg,#ff8dc2,#ffb7d5);
+padding:35px;
+text-align:center;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+header h1{
+font-size:42px;
+}
+
+header p{
+margin-top:8px;
+font-size:18px;
+}
+
+nav{
+margin-top:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:8px;
+padding:10px 18px;
+border-radius:30px;
+transition:.3s;
+display:inline-block;
+}
+
+nav a:hover{
+background:white;
+color:#ff4f98;
+}
+
+section{
+padding:70px 10%;
+}
+
+.hero{
+text-align:center;
+}
+
+.hero img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:8px solid white;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.hero h2{
+margin-top:20px;
+font-size:38px;
+color:#ff4f98;
+}
+
+.hero p{
+margin-top:15px;
+font-size:18px;
+}
+
+h2{
+color:#ff4f98;
+margin-bottom:25px;
+font-size:34px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.timeline{
+display:grid;
+gap:20px;
+}
+
+.item{
+background:white;
+padding:25px;
+border-left:8px solid #ff9bc8;
+border-radius:15px;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.work{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.work:hover{
+transform:translateY(-8px);
+}
+
+.work img{
+width:100%;
+height:230px;
+object-fit:cover;
+}
+
+.work h3{
+padding:15px;
+}
+
+.work p{
+padding:0 15px 20px;
+}
+
+footer{
+background:#ffb7d5;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:30px;
+}
+
+.hero img{
+width:170px;
+height:170px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
+</style>
 
 </head>
+
 <body>
 
 <header>
 
-<h1>PORTFOLIO</h1>
+<h1>🌸 PORTFOLIO 🌸</h1>
 
-<p>Architecture Student</p>
+<p>Architecture Portfolio</p>
 
 <nav>
 
@@ -26,7 +196,7 @@
 
 <a href="#education">การศึกษา</a>
 
-<a href="#works">ผลงาน</a>
+<a href="#works">ผลงานและกิจกรรม</a>
 
 <a href="#certificate">เกียรติบัตร</a>
 
@@ -38,33 +208,35 @@
 
 <section id="home" class="hero">
 
-<img src="images/profile.jpg" class="profile">
+<img src="https://via.placeholder.com/220" alt="Profile">
 
-<h2>สวัสดีค่ะ</h2>
+<h2>สวัสดีค่ะ 👋</h2>
 
-<h3>ฉันชื่อ __________</h3>
+<h3>ชื่อ-นามสกุล</h3>
 
 <p>
-ยินดีต้อนรับสู่ Portfolio สำหรับการสมัครคณะสถาปัตยกรรมศาสตร์
+ยินดีต้อนรับสู่เว็บไซต์ Portfolio สำหรับการสมัครคณะสถาปัตยกรรมศาสตร์
 </p>
 
 </section>
 
 <section id="about">
 
-<h2>ข้อมูลส่วนตัว</h2>
+<h2>💗 ข้อมูลส่วนตัว</h2>
 
 <div class="card">
 
-<p><b>ชื่อ :</b> __________</p>
+<p><b>ชื่อ :</b> ....................................</p>
 
-<p><b>ชื่อเล่น :</b> ________</p>
+<p><b>ชื่อเล่น :</b> ....................................</p>
 
-<p><b>วันเกิด :</b> ________</p>
+<p><b>วันเกิด :</b> ....................................</p>
 
-<p><b>โรงเรียน :</b> ________</p>
+<p><b>โรงเรียน :</b> ....................................</p>
 
-<p><b>ความสนใจ :</b> Architecture, Design, Drawing</p>
+<p><b>ความสามารถ :</b> Drawing, Architecture, Design</p>
+
+<p><b>งานอดิเรก :</b> วาดรูป ถ่ายภาพ อ่านหนังสือ</p>
 
 </div>
 
@@ -72,31 +244,31 @@
 
 <section id="education">
 
-<h2>ประวัติการศึกษา</h2>
+<h2>🎓 ประวัติการศึกษา</h2>
 
 <div class="timeline">
 
 <div class="item">
 
-<h3>ประถมศึกษา</h3>
+<h3>ระดับประถมศึกษา</h3>
 
-<p>โรงเรียน....</p>
-
-</div>
-
-<div class="item">
-
-<h3>มัธยมศึกษาตอนต้น</h3>
-
-<p>โรงเรียน....</p>
+<p>โรงเรียน............................</p>
 
 </div>
 
 <div class="item">
 
-<h3>มัธยมศึกษาตอนปลาย</h3>
+<h3>ระดับมัธยมศึกษาตอนต้น</h3>
 
-<p>โรงเรียน....</p>
+<p>โรงเรียน............................</p>
+
+</div>
+
+<div class="item">
+
+<h3>ระดับมัธยมศึกษาตอนปลาย</h3>
+
+<p>โรงเรียน............................</p>
 
 </div>
 
@@ -106,33 +278,33 @@
 
 <section id="works">
 
-<h2>ผลงานและกิจกรรม</h2>
+<h2>🎨 ผลงานและกิจกรรม</h2>
 
 <div class="gallery">
 
-<div class="box">
+<div class="work">
 
-<img src="images/work1.jpg">
+<img src="https://via.placeholder.com/400x300">
 
 <h3>ผลงานที่ 1</h3>
 
-<p>รายละเอียดผลงาน</p>
+<p>ออกแบบอาคาร / ภาพวาด / โมเดล</p>
 
 </div>
 
-<div class="box">
+<div class="work">
 
-<img src="images/work2.jpg">
+<img src="https://via.placeholder.com/400x300">
 
 <h3>ผลงานที่ 2</h3>
 
-<p>รายละเอียดผลงาน</p>
+<p>ประกวดศิลปะ</p>
 
 </div>
 
-<div class="box">
+<div class="work">
 
-<img src="images/work1.jpg">
+<img src="https://via.placeholder.com/400x300">
 
 <h3>กิจกรรม</h3>
 
@@ -146,23 +318,31 @@
 
 <section id="certificate">
 
-<h2>เกียรติบัตร</h2>
+<h2>🏆 เกียรติบัตร</h2>
 
 <div class="gallery">
 
-<div class="box">
+<div class="work">
 
-<img src="images/work1.jpg">
+<img src="https://via.placeholder.com/400x300">
 
-<p>Certificate 1</p>
+<h3>Certificate 1</h3>
 
 </div>
 
-<div class="box">
+<div class="work">
 
-<img src="images/work2.jpg">
+<img src="https://via.placeholder.com/400x300">
 
-<p>Certificate 2</p>
+<h3>Certificate 2</h3>
+
+</div>
+
+<div class="work">
+
+<img src="https://via.placeholder.com/400x300">
+
+<h3>Certificate 3</h3>
 
 </div>
 
@@ -172,7 +352,7 @@
 
 <section id="contact">
 
-<h2>ข้อมูลติดต่อ</h2>
+<h2>📞 ข้อมูลติดต่อ</h2>
 
 <div class="card">
 
@@ -182,7 +362,7 @@
 
 <p>📷 Instagram : @yourname</p>
 
-<p>💗 Facebook : Your Name</p>
+<p>💙 Facebook : Your Name</p>
 
 </div>
 
@@ -190,245 +370,40 @@
 
 <footer>
 
-Made with ❤
+💖 Made with Love | Portfolio Architecture
 
 </footer>
 
-<script src="script.js"></script>
+<script>
+
+const cards=document.querySelectorAll('.work,.card,.item');
+
+window.addEventListener('scroll',()=>{
+
+cards.forEach(card=>{
+
+const top=card.getBoundingClientRect().top;
+
+if(top<window.innerHeight-80){
+
+card.style.opacity=1;
+card.style.transform='translateY(0)';
+
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.style.opacity=0;
+card.style.transform='translateY(40px)';
+card.style.transition='0.8s';
+
+});
+
+</script>
 
 </body>
 </html>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Kanit',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-
-background:#fff7fb;
-
-color:#444;
-
-}
-
-header{
-
-background:linear-gradient(135deg,#ff9ecb,#ffc5dd);
-
-padding:40px;
-
-text-align:center;
-
-color:white;
-
-}
-
-nav{
-
-margin-top:20px;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-color:white;
-
-margin:10px;
-
-font-weight:600;
-
-padding:10px 18px;
-
-border-radius:30px;
-
-transition:.3s;
-
-}
-
-nav a:hover{
-
-background:white;
-
-color:#ff69a6;
-
-}
-
-section{
-
-padding:70px 10%;
-
-}
-
-.hero{
-
-text-align:center;
-
-}
-
-.profile{
-
-width:220px;
-
-height:220px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:8px solid white;
-
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-margin-bottom:25px;
-
-}
-
-h2{
-
-font-size:35px;
-
-margin-bottom:30px;
-
-color:#ff4f98;
-
-}
-
-.card{
-
-background:white;
-
-padding:30px;
-
-border-radius:20px;
-
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-}
-
-.timeline{
-
-display:grid;
-
-gap:25px;
-
-}
-
-.item{
-
-background:white;
-
-padding:25px;
-
-border-left:8px solid pink;
-
-border-radius:15px;
-
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-
-}
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-}
-
-.box{
-
-background:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:0 10px 20px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-.box:hover{
-
-transform:translateY(-8px);
-
-}
-
-.box img{
-
-width:100%;
-
-height:230px;
-
-object-fit:cover;
-
-}
-
-.box h3{
-
-padding:15px;
-
-}
-
-.box p{
-
-padding:0 15px 20px;
-
-}
-
-footer{
-
-text-align:center;
-
-padding:30px;
-
-background:#ffc5dd;
-
-color:white;
-
-margin-top:50px;
-
-}
-
-@media(max-width:700px){
-
-nav{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-.profile{
-
-width:170px;
-
-height:170px;
-
-}
-
-}
-const links=document.querySelectorAll("nav a");
-
-links.forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-links.forEach(a=>a.classList.remove("active"));
-
-link.classList.add("active");
-
-});
-
-});
