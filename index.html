@@ -1,82 +1,334 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Architecture Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#FFE4F3,#DDF4FF);
+overflow-x:hidden;
+}
+
+/* พื้นหลัง */
+body::before{
+content:"";
+position:fixed;
+width:700px;
+height:700px;
+background:#FFC8E8;
+border-radius:50%;
+top:-250px;
+left:-200px;
+opacity:.35;
+filter:blur(60px);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:650px;
+height:650px;
+background:#BEEBFF;
+border-radius:50%;
+bottom:-220px;
+right:-180px;
+opacity:.4;
+filter:blur(60px);
+z-index:-2;
+}
+
+/* Header */
+header{
+text-align:center;
+padding:80px 20px;
+}
+
+.profile{
+width:180px;
+height:180px;
+border-radius:50%;
+border:8px solid white;
+background:white;
+margin:auto;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.profile img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+h1{
+font-size:50px;
+color:#ff6ba9;
+margin-top:25px;
+}
+
+.subtitle{
+font-size:22px;
+color:#5dafff;
+margin-top:8px;
+}
+
+.wave{
+font-size:30px;
+animation:wave 2s infinite;
+}
+
+@keyframes wave{
+0%,100%{transform:rotate(0deg);}
+50%{transform:rotate(10deg);}
+}
+
+section{
+max-width:1100px;
+margin:auto;
+padding:50px 20px;
+}
+
+.title{
+font-size:36px;
+color:#ff71b4;
+margin-bottom:30px;
+text-align:center;
+}
+
+/* About */
+.about{
+background:white;
+border-radius:30px;
+padding:35px;
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+line-height:2;
+font-size:18px;
+color:#555;
+}
+
+/* Projects */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:25px;
+transition:.35s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.image{
+height:180px;
+border-radius:18px;
+background:linear-gradient(45deg,#FFD6EC,#DDF4FF);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+margin-bottom:18px;
+}
+
+.card h3{
+color:#ff6da8;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+line-height:1.8;
+}
+
+/* Skills */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.skill{
+padding:12px 25px;
+background:white;
+border-radius:40px;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+color:#5baeff;
+font-weight:600;
+}
+
+/* Contact */
+
+.contact{
+background:white;
+padding:40px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+button{
+margin-top:20px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:#ff77b3;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#67c0ff;
+transform:scale(1.05);
+}
+
+footer{
+padding:40px;
+text-align:center;
+color:#777;
+}
+</style>
+
 </head>
 <body>
 
 <header>
-    <h1>สวัสดีครับ</h1>
-    <p>ผมชื่อ [ชื่อของคุณ]</p>
+
+<div class="profile">
+<img src="https://via.placeholder.com/300x300.png?text=PHOTO">
+</div>
+
+<h1>Portfolio 🎀</h1>
+
+<div class="subtitle">
+Architecture Student
+</div>
+
+<div class="wave">
+☁️ 🌸 💙
+</div>
+
 </header>
 
 <section>
-    <h2>เกี่ยวกับฉัน</h2>
-    <p>นักเรียนที่สนใจด้านการเขียนโปรแกรมและเทคโนโลยี</p>
+
+<h2 class="title">
+About Me
+</h2>
+
+<div class="about">
+
+สวัสดีค่ะ ดิฉันมีความสนใจด้านการออกแบบสถาปัตยกรรม
+รักการออกแบบพื้นที่ที่สวยงามและตอบโจทย์การใช้งาน
+ชื่นชอบการวาดภาพ การสร้างโมเดล และการออกแบบอาคาร
+หวังว่าจะได้นำความคิดสร้างสรรค์มาพัฒนาสังคมผ่านงานสถาปัตยกรรมในอนาคต
+
+</div>
+
 </section>
 
 <section>
-    <h2>ทักษะ</h2>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-    </ul>
+
+<h2 class="title">
+My Projects
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="image">🏡</div>
+<h3>Modern House</h3>
+<p>บ้านพักอาศัยสไตล์ Modern Minimal</p>
+</div>
+
+<div class="card">
+<div class="image">🏛️</div>
+<h3>Architecture Design</h3>
+<p>โครงการออกแบบอาคารสาธารณะ</p>
+</div>
+
+<div class="card">
+<div class="image">🛋️</div>
+<h3>Interior</h3>
+<p>งานออกแบบภายในและการจัดพื้นที่</p>
+</div>
+
+<div class="card">
+<div class="image">✏️</div>
+<h3>Sketch</h3>
+<p>Perspective Drawing และภาพร่าง</p>
+</div>
+
+</div>
+
 </section>
 
 <section>
-    <h2>โปรเจกต์</h2>
 
-    <div class="project">
-        <h3>เครื่องคิดเลข</h3>
-        <p>สร้างด้วย HTML CSS JavaScript</p>
-    </div>
+<h2 class="title">
+Skills
+</h2>
 
-    <div class="project">
-        <h3>ระบบบันทึกงาน</h3>
-        <p>สามารถเพิ่ม ลบ และแก้ไขรายการได้</p>
-    </div>
+<div class="skills">
+
+<div class="skill">AutoCAD</div>
+<div class="skill">SketchUp</div>
+<div class="skill">Photoshop</div>
+<div class="skill">Illustrator</div>
+<div class="skill">Enscape</div>
+<div class="skill">Model Making</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">
+Contact
+</h2>
+
+<div class="contact">
+
+<h3>ชื่อ-นามสกุล</h3>
+
+<p>โทร : 08x-xxx-xxxx</p>
+
+<p>Email : example@email.com</p>
+
+<button>Download Portfolio</button>
+
+</div>
+
 </section>
 
 <footer>
-    <p>Email : your@email.com</p>
+
+Made with 💗 & ☁️
+
 </footer>
 
 </body>
 </html>
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f4f4;
-    margin:0;
-}
-
-header{
-    background:#0066cc;
-    color:white;
-    padding:30px;
-    text-align:center;
-}
-
-section{
-    background:white;
-    margin:20px;
-    padding:20px;
-    border-radius:10px;
-}
-
-.project{
-    border-left:5px solid #0066cc;
-    padding-left:15px;
-    margin:15px 0;
-}
-
-footer{
-    text-align:center;
-    padding:20px;
-    background:#222;
-    color:white;
-}
