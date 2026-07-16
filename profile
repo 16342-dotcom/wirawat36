@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | ประวัติส่วนตัว</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== DESIGN TOKENS ===== */
+:root{
+  --bg-0:#15101f;
+  --bg-1:#1e1630;
+  --bg-2:#271c3a;
+  --rose:#ff3d7f;
+  --rose-light:#ff8fc7;
+  --rose-deep:#d81e63;
+  --blue:#17d4ff;
+  --blue-light:#7cf0ff;
+  --blue-deep:#0891b8;
+  --gold:#c9a86a;
+  --ink:#f4ecee;
+  --muted:#b6a0a8;
+  --muted-dim:#8a7680;
+  --glass-bg:rgba(255,255,255,.075);
+  --glass-bg-2:rgba(255,255,255,.12);
+  --glass-border:rgba(255,255,255,.18);
+  --line:rgba(255,61,127,.35);
+  --radius:18px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg-0);
+  color:var(--ink);
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}
+}
+
+h1,h2,h3,h4,.display{font-family:'Syne',sans-serif;font-weight:700;letter-spacing:-.01em;}
+.mono{font-family:'JetBrains Mono',monospace;}
+
+::selection{background:var(--rose);color:#140b10;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+
+::-webkit-scrollbar{width:9px;}
+::-webkit-scrollbar-track{background:var(--bg-0);}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--rose-deep),var(--blue-deep));border-radius:10px;}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.bg-field{position:fixed;inset:0;z-index:-2;overflow:hidden;background:var(--bg-0);}
+.bg-gradient{
+  position:absolute;inset:-20%;
+  background:
+    radial-gradient(circle at 18% 26%, rgba(255,61,127,.55), transparent 45%),
+    radial-gradient(circle at 82% 18%, rgba(23,212,255,.48), transparent 50%),
+    radial-gradient(circle at 50% 88%, rgba(216,30,99,.42), transparent 55%),
+    radial-gradient(circle at 28% 72%, rgba(23,212,255,.32), transparent 50%),
+    linear-gradient(135deg, #17102a, #1e1630 45%, #10222f 100%);
+  animation:driftGradient 24s var(--ease) infinite alternate;
+  filter:blur(6px) saturate(1.25);
+}
+@keyframes driftGradient{
+  0%{transform:translate(-4%,-3%) scale(1);}
+  50%{transform:translate(3%,4%) scale(1.08);}
+  100%{transform:translate(-2%,5%) scale(1.03);}
+}
+.bg-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(124,240,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,240,255,.06) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(circle at 50% 30%, black, transparent 80%);
+}
+.bg-noise{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* ===== BLUEPRINT CORNER MARKS (signature element) ===== */
+.blueprint{position:relative;}
+.blueprint::before,.blueprint::after,
+.blueprint .bp-tl,.blueprint .bp-tr,.blueprint .bp-bl,.blueprint .bp-br{
+  content:"";position:absolute;width:14px;height:14px;
+  border-color:var(--blue-light);opacity:.55;pointer-events:none;
+}
+.blueprint::before{top:-1px;left:-1px;border-top:2px solid;border-left:2px solid;}
+.blueprint::after{bottom:-1px;right:-1px;border-bottom:2px solid;border-right:2px solid;}
+.bp-tag{
+  position:absolute;top:-11px;left:14px;background:var(--bg-1);
+  padding:0 8px;font-size:.65rem;letter-spacing:.14em;color:var(--blue-light);
+  text-transform:uppercase;
+}
+
+/* ===== LOADING SCREEN ===== */
+#loading{
+  position:fixed;inset:0;z-index:9999;background:var(--bg-0);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  transition:opacity .7s var(--ease), visibility .7s var(--ease);
+}
+#loading.hide{opacity:0;visibility:hidden;}
+.load-mark{position:relative;width:74px;height:74px;}
+.load-mark svg{width:100%;height:100%;}
+.load-mark circle{
+  fill:none;stroke:var(--rose);stroke-width:2;stroke-linecap:round;
+  stroke-dasharray:210;stroke-dashoffset:210;
+  animation:drawCircle 1.4s var(--ease) infinite;
+}
+.load-mark rect{
+  fill:none;stroke:var(--blue-light);stroke-width:1.4;opacity:.6;
+  stroke-dasharray:160;stroke-dashoffset:160;
+  animation:drawCircle 1.4s var(--ease) infinite .15s;
+}
+@keyframes drawCircle{
+  0%{stroke-dashoffset:210;}
+  60%{stroke-dashoffset:0;}
+  100%{stroke-dashoffset:-210;}
+}
+.load-text{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;}
+
+/* ===== NAVBAR ===== */
+header.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(20px,5vw,56px);
+  background:rgba(18,12,22,.55);
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid var(--glass-border);
+  transition:padding .35s var(--ease), background .35s var(--ease);
+}
+header.navbar.scrolled{padding:10px clamp(20px,5vw,56px);background:rgba(15,10,18,.78);}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:1.02rem;letter-spacing:.02em;}
+.brand .dot{width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,var(--rose),var(--blue));transform:rotate(45deg);box-shadow:0 0 12px rgba(232,73,107,.6);}
+nav.links{display:flex;gap:6px;align-items:center;}
+nav.links a{
+  position:relative;padding:8px 16px;font-size:.78rem;letter-spacing:.12em;
+  font-family:'JetBrains Mono',monospace;color:var(--muted);
+  border-radius:999px;transition:color .3s var(--ease), background .3s var(--ease);
+}
+nav.links a:hover{color:var(--ink);background:var(--glass-bg);}
+nav.links a.active{color:var(--blue-light);background:var(--glass-bg-2);}
+nav.links a.active::after{
+  content:"";position:absolute;left:16px;right:16px;bottom:2px;height:2px;
+  background:linear-gradient(90deg,var(--rose),var(--blue-light));border-radius:2px;
+}
+.nav-toggle{display:none;width:38px;height:38px;border-radius:10px;background:var(--glass-bg);border:1px solid var(--glass-border);flex-direction:column;align-items:center;justify-content:center;gap:5px;}
+.nav-toggle span{width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s var(--ease),opacity .3s var(--ease);}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+@media (max-width:760px){
+  nav.links{
+    position:fixed;top:64px;right:0;left:0;flex-direction:column;align-items:stretch;
+    background:rgba(15,10,18,.96);backdrop-filter:blur(18px);
+    padding:14px 22px 26px;gap:4px;border-bottom:1px solid var(--glass-border);
+    transform:translateY(-130%);opacity:0;transition:transform .4s var(--ease),opacity .3s var(--ease);
+  }
+  nav.links.open{transform:translateY(0);opacity:1;}
+  nav.links a{padding:13px 16px;font-size:.85rem;}
+  .nav-toggle{display:flex;}
+}
+
+/* ===== LAYOUT ===== */
+main{position:relative;z-index:1;padding-top:88px;}
+.section{padding:64px clamp(20px,6vw,80px);max-width:1180px;margin:0 auto;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.32em;
+  color:var(--blue-light);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--blue-light);}
+.section h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:10px;}
+.section p.lead{color:var(--muted);max-width:60ch;line-height:1.75;font-size:.98rem;}
+
+/* ===== GLASS CARD ===== */
+.glass{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  backdrop-filter:blur(18px) saturate(130%);
+  -webkit-backdrop-filter:blur(18px) saturate(130%);
+  box-shadow:0 8px 30px rgba(0,0,0,.28);
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+}
+.glass:hover{transform:translateY(-6px);border-color:rgba(23,212,255,.55);box-shadow:0 18px 44px rgba(23,212,255,.28);}
+
+/* ===== BUTTONS ===== */
+.btn{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 30px;border-radius:999px;
+  font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+}
+.btn-primary{background:linear-gradient(135deg,var(--rose),var(--blue));color:#fff;box-shadow:0 10px 30px rgba(23,212,255,.4);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(255,61,127,.55);}
+.btn-ghost{background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--ink);}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--blue-light);color:var(--blue-light);box-shadow:0 10px 26px rgba(23,212,255,.25);}
+.ripple-dot{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:rippleAnim .65s ease-out;pointer-events:none;}
+@keyframes rippleAnim{to{transform:scale(3.2);opacity:0;}}
+
+.page-nav{display:flex;justify-content:space-between;gap:16px;margin-top:56px;flex-wrap:wrap;}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.08s;}
+.reveal-delay-2{transition-delay:.16s;}
+.reveal-delay-3{transition-delay:.24s;}
+.reveal-delay-4{transition-delay:.32s;}
+
+/* ===== SCROLL TOP ===== */
+#scrollTop{
+  position:fixed;bottom:26px;right:26px;z-index:850;width:46px;height:46px;border-radius:14px;
+  background:var(--glass-bg-2);border:1px solid var(--glass-border);backdrop-filter:blur(14px);
+  display:flex;align-items:center;justify-content:center;color:var(--blue-light);font-size:1.1rem;
+  opacity:0;pointer-events:none;transform:translateY(14px) rotate(45deg);
+  transition:opacity .35s var(--ease), transform .35s var(--ease);
+}
+#scrollTop.show{opacity:1;pointer-events:auto;transform:translateY(0) rotate(45deg);}
+#scrollTop svg{transform:rotate(-45deg);}
+
+/* ===== FOOTER ===== */
+footer{
+  position:relative;z-index:1;padding:34px clamp(20px,6vw,80px);
+  border-top:1px solid var(--glass-border);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;color:var(--muted-dim);
+}
+
+/* ===== TYPING ===== */
+.typing::after{content:"";display:inline-block;width:2px;height:1em;background:var(--blue-light);margin-left:4px;vertical-align:-2px;animation:blink 1s step-end infinite;}
+@keyframes blink{50%{opacity:0;}}
+
+/* ===== IMAGE FRAMES ===== */
+.img-frame{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--glass-border);background:var(--glass-bg);
+}
+.img-frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease), filter .5s var(--ease);}
+.img-frame:hover img{transform:scale(1.055);}
+.img-frame .frame-caption{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 18px;
+  background:linear-gradient(0deg, rgba(10,6,12,.82), transparent);
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-light);
+}
+.img-fallback{
+  width:100%;height:100%;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  color:var(--muted-dim);font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-align:center;padding:20px;
+}
+.img-fallback svg{width:34px;height:34px;opacity:.5;}
+
+/* ===== RESPONSIVE GRID FIXES ===== */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr !important;}
+  .profile-grid{grid-template-columns:1fr !important;}
+}
+@media (max-width:600px){
+  .section{padding-left:18px;padding-right:18px;}
+  .page-nav{flex-direction:column;}
+  .page-nav a{width:100%;justify-content:center;}
+}
+
+</style>
+
+</head>
+<body>
+<div class="bg-field">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-noise"></div>
+  </div>
+<div id="loading">
+    <div class="load-mark">
+      <svg viewBox="0 0 74 74">
+        <rect x="14" y="14" width="46" height="46" rx="4"></rect>
+        <circle cx="37" cy="37" r="26"></circle>
+      </svg>
+    </div>
+    <div class="load-text">Loading Portfolio…</div>
+  </div>
+<header class="navbar">
+    <a href="index.html" class="brand"><span class="dot"></span>PORTFOLIO<span class="mono" style="color:var(--muted-dim);font-size:.7rem;margin-left:6px;">/ PROFILE</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <nav class="links">
+      <a href="index.html" class="">HOME</a>
+      <a href="profile.html" class="active">PROFILE</a>
+      <a href="education.html" class="">EDUCATION</a>
+      <a href="award.html" class="">AWARD</a>
+      <a href="contact.html" class="">CONTACT</a>
+    </nav>
+  </header>
+<main>
+
+<section class="section" style="padding-top:40px;">
+  <div class="eyebrow reveal">02 &middot; PERSONAL PROFILE</div>
+  <h2 class="reveal">ประวัติส่วนตัว</h2>
+  <p class="lead reveal">ข้อมูลเบื้องต้นเกี่ยวกับตัวผมและความสนใจด้านการออกแบบ</p>
+
+  <div style="display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;margin-top:44px;align-items:start;" class="profile-grid">
+    <div class="reveal blueprint" style="position:relative;">
+      <span class="bp-tag">FIG.02 &mdash; PORTRAIT</span>
+      <div class="img-frame glass" style="aspect-ratio:3/4;">
+        <!-- เปลี่ยนรูปโดยแก้ไขชื่อไฟล์ที่ src ด้านล่าง -->
+        <img src="profile-photo.jpg" alt="รูปประจำตัว" data-fallback="วางไฟล์รูปชื่อ profile-photo.jpg ไว้โฟลเดอร์เดียวกับ profile.html">
+        <div class="frame-caption">Personal Photo</div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1 glass blueprint" style="padding:36px 32px;">
+      <span class="bp-tag">STUDENT DATA SHEET</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 28px;">
+        <div class="info-item"><div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:4px;">ชื่อ-นามสกุล</div><div style="font-size:1rem;">ด.ช./ด.ญ. ชื่อ นามสกุล</div></div>
+        <div class="info-item"><div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:4px;">วันเดือนปีเกิด</div><div style="font-size:1rem;">1 มกราคม 2551</div></div>
+        <div class="info-item"><div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:4px;">อายุ</div><div style="font-size:1rem;">18 ปี</div></div>
+        <div class="info-item"><div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:4px;">โรงเรียน</div><div style="font-size:1rem;">โรงเรียนตัวอย่างวิทยาคม</div></div>
+        <div class="info-item"><div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:4px;">แผนการเรียน</div><div style="font-size:1rem;">วิทยาศาสตร์-คณิตศาสตร์</div></div>
+        <div class="info-item"><div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:4px;">เกรดเฉลี่ยสะสม</div><div style="font-size:1rem;color:var(--rose-light);">3.85</div></div>
+      </div>
+
+      <div style="height:1px;background:var(--glass-border);margin:26px 0;"></div>
+
+      <div style="margin-bottom:20px;">
+        <div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:8px;">ความสามารถพิเศษ</div>
+        <p style="line-height:1.75;color:var(--ink);font-size:.95rem;">วาดภาพร่าง (Sketch) ออกแบบโมเดลจำลอง 3 มิติ และใช้โปรแกรม SketchUp / Photoshop เบื้องต้น</p>
+      </div>
+      <div style="margin-bottom:20px;">
+        <div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:8px;">งานอดิเรก</div>
+        <p style="line-height:1.75;color:var(--ink);font-size:.95rem;">ถ่ายภาพสถาปัตยกรรม เดินสำรวจอาคารเก่า และประกอบโมเดลกระดาษ</p>
+      </div>
+      <div>
+        <div class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--muted-dim);margin-bottom:8px;">เป้าหมายในการศึกษาต่อ</div>
+        <p style="line-height:1.75;color:var(--ink);font-size:.95rem;">ศึกษาต่อคณะสถาปัตยกรรมศาสตร์ เพื่อพัฒนาแนวคิดด้านการออกแบบพื้นที่ใช้สอยที่เป็นมิตรต่อผู้คนและสิ่งแวดล้อม</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-nav reveal">
+    <a href="index.html" class="btn btn-ghost ripple">&larr;&nbsp; ย้อนกลับ</a>
+    <a href="education.html" class="btn btn-primary ripple">ถัดไป &nbsp;&rarr;</a>
+  </div>
+</section>
+
+</main>
+<footer>
+    <span>&copy; 2026 ARCHITECTURE PORTFOLIO</span>
+    <span>DESIGNED FOR FACULTY OF ARCHITECTURE ADMISSION</span>
+  </footer>
+<button id="scrollTop" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+<script>
+// ===== LOADING SCREEN =====
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loading');
+  setTimeout(() => { if (loader) loader.classList.add('hide'); }, 900);
+});
+
+// ===== NAV: scrolled state + mobile toggle =====
+const navbar = document.querySelector('header.navbar');
+const navLinks = document.querySelector('nav.links');
+const navToggle = document.getElementById('navToggle');
+const scrollTopBtn = document.getElementById('scrollTop');
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (navbar) navbar.classList.toggle('scrolled', y > 30);
+  if (scrollTopBtn) scrollTopBtn.classList.toggle('show', y > 420);
+}, { passive: true });
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+  }));
+}
+
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+// ===== SCROLL REVEAL =====
+const revealItems = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealItems.forEach(item => revealObserver.observe(item));
+
+// ===== TYPING EFFECT =====
+function runTyping(el) {
+  const text = el.getAttribute('data-typing');
+  if (!text) return;
+  el.textContent = '';
+  let i = 0;
+  const speed = 42;
+  (function type() {
+    if (i <= text.length) {
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, speed);
+    }
+  })();
+}
+document.querySelectorAll('[data-typing]').forEach(el => {
+  setTimeout(() => runTyping(el), 1000);
+});
+
+// ===== RIPPLE EFFECT =====
+document.querySelectorAll('.ripple').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    const rect = this.getBoundingClientRect();
+    const dot = document.createElement('span');
+    const size = Math.max(rect.width, rect.height) * 1.2;
+    dot.className = 'ripple-dot';
+    dot.style.width = dot.style.height = size + 'px';
+    dot.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    dot.style.top = (e.clientY - rect.top - size / 2) + 'px';
+    this.appendChild(dot);
+    setTimeout(() => dot.remove(), 650);
+  });
+});
+
+// ===== AWARD LIGHTBOX (only present on award.html) =====
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCap = document.getElementById('lightboxCap');
+  document.querySelectorAll('[data-lightbox]').forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      lightboxImg.src = img ? img.src : '';
+      lightboxCap.textContent = card.getAttribute('data-lightbox');
+      lightbox.classList.add('open');
+    });
+  });
+  lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+}
+
+// ===== IMAGE FALLBACK =====
+document.querySelectorAll('img[data-fallback]').forEach(img => {
+  img.addEventListener('error', function () {
+    const frame = this.closest('.img-frame');
+    if (frame && !frame.querySelector('.img-fallback')) {
+      this.style.display = 'none';
+      frame.insertAdjacentHTML('beforeend', `<div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.6"/><path d="M21 15l-5-5-11 11"/></svg><span>${this.getAttribute('data-fallback')}</span></div>`);
+    }
+  });
+});
+
+</script>
+</body>
+</html>
