@@ -92,6 +92,12 @@
     min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;padding-top:120px;
   }
+  .hero-photo{
+    width:170px;height:170px;border-radius:50%;overflow:hidden;
+    border:5px solid var(--white);box-shadow:var(--shadow);
+    margin-bottom:22px;background:linear-gradient(135deg,var(--pink),var(--blue));
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
   .eyebrow{
     display:inline-block;background:var(--yellow);padding:6px 18px;border-radius:30px;
     font-size:.85rem;font-weight:600;letter-spacing:.5px;margin-bottom:22px;
@@ -123,8 +129,9 @@
     width:230px;height:230px;border-radius:44% 56% 60% 40%/50% 45% 55% 50%;
     background:linear-gradient(135deg,var(--pink),var(--blue));
     display:flex;align-items:center;justify-content:center;font-size:4rem;
-    border:4px dashed var(--pink-deep);flex-shrink:0;
+    border:4px dashed var(--pink-deep);flex-shrink:0;overflow:hidden;
   }
+  .avatar img{width:100%;height:100%;object-fit:cover;}
   .about-text{max-width:480px;}
   .about-text p{margin-bottom:16px;color:var(--plum-soft);line-height:1.8;}
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
@@ -245,6 +252,9 @@
   <svg class="blob spin" style="bottom:14%;left:12%;width:60px;color:var(--pink-deep)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
   <svg class="blob float" style="bottom:20%;right:10%;width:64px;color:var(--mint)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V9l9-6 9 6v12H3z"/><path d="M9 21v-6h6v6"/></svg>
 
+  <div class="hero-photo float">
+    <img src="your-photo.jpg" alt="รูปโปรไฟล์ของฉัน">
+  </div>
   <span class="eyebrow">🌈 Portfolio 2569</span>
   <h1>สวัสดีครับ ฉันชื่อ<br><span class="accent">นาย วิรวัฒน์ บูรพกรณ์</span> 🏠</h1>
   <p class="sub">ว่าที่นักศึกษาคณะสถาปัตยกรรมศาสตร์ ผู้หลงใหลในเส้นสาย พื้นที่ และการออกแบบที่เล่าเรื่องราวได้</p>
@@ -262,7 +272,9 @@
     <div class="underline"></div>
   </div>
   <div class="about-wrap">
-    <div class="avatar reveal wiggle"></div>
+    <div class="avatar reveal wiggle">
+      <img src="your-photo.jpg" alt="รูปแนะนำตัว">
+    </div>
     <div class="about-text reveal">
       <p>สวัสดีครับ! ฉันเป็นนักเรียนชั้นมัธยมศึกษาปีที่ 6 ที่หลงรักการวาดเส้น การออกแบบพื้นที่ และการแก้ปัญหาอย่างสร้างสรรค์ ฉันเชื่อว่าสถาปัตยกรรมคือศิลปะที่ผสมผสานความงามเข้ากับประโยชน์ใช้สอยได้อย่างลงตัว</p>
       <p>ในเวลาว่าง ฉันชอบร่างแบบอาคารเล่นๆ ถ่ายภาพสถาปัตยกรรมรอบเมือง และทำโมเดลจำลองด้วยกระดาษ เป้าหมายของฉันคือการเป็นสถาปนิกที่ออกแบบพื้นที่ซึ่งทำให้ผู้คนมีความสุขมากขึ้น</p>
@@ -270,7 +282,7 @@
         <span class="chip">🎂 เกิด 29 ม.ค. 2551</span>
         <span class="chip">🎨 สีโปรด: พาสเทล</span>
         <span class="chip">📷 งานอดิเรก: ถ่ายภาพ</span>
-        <span class="chip">💭 คติ: เต็มที่กับทุกงานที่ได้ทำ </span>
+        <span class="chip">💭 คติ: Design with heart</span>
       </div>
     </div>
   </div>
@@ -308,7 +320,7 @@
       <div class="t-card">
         <div class="t-year">2566 – 2569</div>
         <h3>มัธยมศึกษาตอนปลาย (ม.4–6)</h3>
-        <p>โรงเรียน พานทอง แผนการเรียนวิทย์-คณิต เกรดเฉลี่ยสะสม 3.32</p>
+        <p>โรงเรียน..................... แผนการเรียนวิทย์-คณิต / ศิลป์-คำนวณ เกรดเฉลี่ยสะสม 3.xx</p>
       </div>
     </div>
     <div class="t-item reveal">
@@ -316,7 +328,7 @@
       <div class="t-card">
         <div class="t-year">2563 – 2566</div>
         <h3>มัธยมศึกษาตอนต้น (ม.1–3)</h3>
-        <p>โรงเรียน สะตอวิทยาคม เกียรตินิยม / กิจกรรมเด่นด้านศิลปะและการออกแบบ</p>
+        <p>โรงเรียน..................... เกียรตินิยม / กิจกรรมเด่นด้านศิลปะและการออกแบบ</p>
       </div>
     </div>
     <div class="t-item reveal">
@@ -324,7 +336,7 @@
       <div class="t-card">
         <div class="t-year">2557 – 2563</div>
         <h3>ประถมศึกษา</h3>
-        <p>โรงเรียน บ้านหนองบัว เริ่มสนใจงานศิลปะและการวาดภาพตั้งแต่วัยเด็ก</p>
+        <p>โรงเรียน..................... เริ่มสนใจงานศิลปะและการวาดภาพตั้งแต่วัยเด็ก</p>
       </div>
     </div>
   </div>
@@ -401,10 +413,10 @@
   <div class="contact-wrap">
     <div class="contact-info reveal">
       <a href="mailto:youremail@example.com">📧 youremail@example.com</a>
-      <a href="tel:0624374100">📱 062-437-4100</a>
-      <a href="#">📸 Instagram: _parkin_01</a>
+      <a href="tel:0800000000">📱 080-000-0000</a>
+      <a href="#">📸 Instagram: @yourname</a>
       <a href="#">💬 Line ID: yourlineid</a>
-      <a href="#">📘 Facebook: อนาคิน'น</a>
+      <a href="#">📘 Facebook: ชื่อ-นามสกุล</a>
     </div>
     <form class="contact-form reveal" id="contactForm">
       <input type="text" placeholder="ชื่อของคุณ" required>
