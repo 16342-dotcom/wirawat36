@@ -9,23 +9,23 @@
 <style>
 /* ===== DESIGN TOKENS ===== */
 :root{
-  --bg-0:#120c16;
-  --bg-1:#1c1220;
-  --bg-2:#241729;
-  --rose:#e8496b;
-  --rose-light:#ff8aa1;
-  --rose-deep:#a82d4a;
-  --blue:#3fb6e0;
-  --blue-light:#8fe3ff;
-  --blue-deep:#1f6f96;
+  --bg-0:#15101f;
+  --bg-1:#1e1630;
+  --bg-2:#271c3a;
+  --rose:#ff3d7f;
+  --rose-light:#ff8fc7;
+  --rose-deep:#d81e63;
+  --blue:#17d4ff;
+  --blue-light:#7cf0ff;
+  --blue-deep:#0891b8;
   --gold:#c9a86a;
   --ink:#f4ecee;
   --muted:#b6a0a8;
   --muted-dim:#8a7680;
-  --glass-bg:rgba(255,255,255,.055);
-  --glass-bg-2:rgba(255,255,255,.09);
-  --glass-border:rgba(255,255,255,.14);
-  --line:rgba(232,73,107,.28);
+  --glass-bg:rgba(255,255,255,.075);
+  --glass-bg-2:rgba(255,255,255,.12);
+  --glass-border:rgba(255,255,255,.18);
+  --line:rgba(255,61,127,.35);
   --radius:18px;
   --ease:cubic-bezier(.22,1,.36,1);
 }
@@ -60,13 +60,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .bg-gradient{
   position:absolute;inset:-20%;
   background:
-    radial-gradient(circle at 18% 26%, rgba(232,73,107,.34), transparent 45%),
-    radial-gradient(circle at 82% 18%, rgba(63,182,224,.30), transparent 50%),
-    radial-gradient(circle at 50% 88%, rgba(168,45,74,.26), transparent 55%),
-    radial-gradient(circle at 30% 70%, rgba(63,182,224,.18), transparent 50%),
-    linear-gradient(135deg, #10121a, #1c1220 45%, #12202a 100%);
+    radial-gradient(circle at 18% 26%, rgba(255,61,127,.55), transparent 45%),
+    radial-gradient(circle at 82% 18%, rgba(23,212,255,.48), transparent 50%),
+    radial-gradient(circle at 50% 88%, rgba(216,30,99,.42), transparent 55%),
+    radial-gradient(circle at 28% 72%, rgba(23,212,255,.32), transparent 50%),
+    linear-gradient(135deg, #17102a, #1e1630 45%, #10222f 100%);
   animation:driftGradient 24s var(--ease) infinite alternate;
-  filter:blur(10px);
+  filter:blur(6px) saturate(1.25);
 }
 @keyframes driftGradient{
   0%{transform:translate(-4%,-3%) scale(1);}
@@ -76,8 +76,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .bg-grid{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(244,236,238,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244,236,238,.05) 1px, transparent 1px);
+    linear-gradient(rgba(124,240,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,240,255,.06) 1px, transparent 1px);
   background-size:56px 56px;
   mask-image:radial-gradient(circle at 50% 30%, black, transparent 80%);
 }
@@ -189,7 +189,7 @@ main{position:relative;z-index:1;padding-top:88px;}
   box-shadow:0 8px 30px rgba(0,0,0,.28);
   transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
 }
-.glass:hover{transform:translateY(-6px);border-color:rgba(63,182,224,.45);box-shadow:0 18px 40px rgba(31,111,150,.25);}
+.glass:hover{transform:translateY(-6px);border-color:rgba(23,212,255,.55);box-shadow:0 18px 44px rgba(23,212,255,.28);}
 
 /* ===== BUTTONS ===== */
 .btn{
@@ -199,10 +199,10 @@ main{position:relative;z-index:1;padding-top:88px;}
   font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
   transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
 }
-.btn-primary{background:linear-gradient(135deg,var(--rose),var(--blue));color:#fff;box-shadow:0 10px 26px rgba(63,182,224,.3);}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(232,73,107,.45);}
+.btn-primary{background:linear-gradient(135deg,var(--rose),var(--blue));color:#fff;box-shadow:0 10px 30px rgba(23,212,255,.4);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(255,61,127,.55);}
 .btn-ghost{background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--ink);}
-.btn-ghost:hover{transform:translateY(-3px);border-color:var(--blue-light);color:var(--blue-light);}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--blue-light);color:var(--blue-light);box-shadow:0 10px 26px rgba(23,212,255,.25);}
 .ripple-dot{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:rippleAnim .65s ease-out;pointer-events:none;}
 @keyframes rippleAnim{to{transform:scale(3.2);opacity:0;}}
 
