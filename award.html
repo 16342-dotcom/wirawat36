@@ -15,41 +15,31 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   
-/* นำไปวางในส่วน <style> ของคุณ */
-body {
-    background-color: #FDEEF2; /* สีพื้นหลังหลัก */
-    min-height: 100vh;
-    margin: 0;
-    position: relative;
-}
+  /* พื้นหลังลายตารางเหมือนหน้า Education */
+  body {
+      background-color: var(--blush);
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
+  }
+  body::after {
+      content: '';
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+      background-image: 
+          linear-gradient(rgba(110, 42, 70, 0.1) 1px, transparent 1px), 
+          linear-gradient(90deg, rgba(110, 42, 70, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+  }
 
-/* สร้างลายตาราง */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* ให้ลายตารางอยู่หลังสุด */
-    background-image: 
-        linear-gradient(rgba(110, 42, 70, 0.1) 1px, transparent 1px), 
-        linear-gradient(90deg, rgba(110, 42, 70, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px; /* ปรับขนาดช่องตาราง */
-    pointer-events: none; /* เพื่อไม่ให้ขวางการคลิกใช้งานหน้าเว็บ */
-}
-
-  @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-
-  /* --- Navbar (เหมือน Education) --- */
-  .navbar{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,60px);background:rgba(255,255,255,.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);}
+  /* --- Navbar --- */
+  .navbar{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,60px);background:rgba(255,255,255,.45);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);}
   .logo{font-family:'Prompt',sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:1px;color:var(--mauve);display:flex;align-items:center;gap:8px;}
   .logo span{width:10px;height:10px;border-radius:50%;background:var(--rose-dark);display:inline-block;box-shadow:0 0 0 4px rgba(217,102,143,.25);}
   .nav-links{display:flex;gap:clamp(10px,2vw,32px);list-style:none;}
   .nav-links a{text-decoration:none;color:var(--mauve);font-family:'Prompt',sans-serif;font-size:.85rem;letter-spacing:1.5px;font-weight:500;padding:8px 4px;position:relative;transition:color .3s;}
-  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .35s ease;}
-  .nav-links a:hover{color:var(--rose-dark);} .nav-links a:hover::after{width:100%;}
-  .nav-links a.active{color:var(--rose-dark);font-weight:600;} .nav-links a.active::after{width:100%;background:var(--rose-dark);}
+  .nav-links a.active{color:var(--rose-dark);font-weight:600;border-bottom:2px solid var(--rose-dark);}
   .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
   .nav-toggle span{width:24px;height:2px;background:var(--mauve);}
 
@@ -57,11 +47,14 @@ body::after {
   .page-wrap{max-width:900px;margin:0 auto;padding:140px 24px 60px;}
   .page-head{text-align:center;margin-bottom:52px;}
   .page-head h1{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--mauve);font-family:'Prompt',sans-serif;}
+  
   .award-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;}
   .glass{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(18px);border-radius:var(--radius);padding:20px;transition:transform .3s;}
   .glass:hover{transform:translateY(-5px);}
   .award-thumb{aspect-ratio:16/9;overflow:hidden;border-radius:15px;margin-bottom:15px;}
   .award-thumb img{width:100%;height:100%;object-fit:cover;}
+  .glass h3{color:var(--mauve);margin-bottom:8px;}
+  .glass p{font-size:0.9rem;line-height:1.5;color:var(--ink);}
   
   .nav-buttons{display:flex;justify-content:space-between;margin-top:44px;gap:16px;}
   .btn{display:inline-flex;align-items:center;padding:14px 32px;border-radius:100px;text-decoration:none;font-family:'Prompt',sans-serif;font-weight:500;border:none;cursor:pointer;transition:transform .3s;}
@@ -79,7 +72,7 @@ body::after {
 
 <nav class="navbar">
   <div class="logo"><span></span>PORTFOLIO — ARCH.</div>
-  <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู"><span></span><span></span><span></span></button>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">HOME</a></li>
     <li><a href="profile.html">PROFILE</a></li>
@@ -95,25 +88,21 @@ body::after {
   </div>
 
   <div class="award-grid">
-    <!-- กล่องที่ 1 -->
     <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0760.jpeg" alt="Award 1"></div>
       <h3>จิตอาสาเเละผู้นำ</h3>
       <p>เกียรติบัตรผู้นำในการจัดกิจกรรมค่าย STEAM DAY CAMP ประจำปีการศึกษา 2569</p>
     </div>
-    <!-- กล่องที่ 2 -->
     <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0761.jpeg" alt="Award 2"></div>
       <h3>กิจกรรมค่าย STEM</h3>
       <p>เกียรติบัตรเข้าร่วมกิจกรรมค่าย STEM นักวิทย์ฯ คิดสร้างสรรค์ ประจำปีการศึกษา 2567</p>
     </div>
-    <!-- กล่องที่ 3 -->
     <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0766.jpeg" alt="Award 3"></div>
       <h3>รางวัลรองชนะเลิศอันดับ 1</h3>
       <p>การแข่งขัน PT ROV E-Sport กิจกรรมสัปดาห์วิทยาศาสตร์ฯ ประจำปีการศึกษา 2567</p>
     </div>
-    <!-- กล่องที่ 4 -->
     <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0765.jpeg" alt="Award 4"></div>
       <h3>รางวัลระดับเหรียญทอง</h3>
@@ -128,9 +117,9 @@ body::after {
 </div>
 
 <script>
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
 </script>
 </body>
 </html>
