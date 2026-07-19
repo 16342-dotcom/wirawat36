@@ -3,237 +3,262 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>หน้าหลัก | Portfolio สถาปัตยกรรมศาสตร์</title>
+<title>พอร์ตโฟลิโอ | สมัครเข้าศึกษาต่อคณะสถาปัตยกรรมศาสตร์</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Kanit:wght@300;400;500;600&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root{
+    --blush:#FDEEF2;
+    --blush-deep:#FBD9E4;
+    --rose:#F2A6C4;
+    --rose-dark:#D9668F;
+    --mauve:#6E2A46;
+    --ink:#2B1B22;
+    --gold:#D9B382;
+    --glass-bg:rgba(255,255,255,.5);
+    --glass-border:rgba(255,255,255,.75);
+    --radius:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Sarabun',sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+  body::before{
+    content:'';
+    position:fixed;inset:0;z-index:-2;
+    background:linear-gradient(120deg,var(--blush),var(--blush-deep),var(--rose),var(--blush-deep));
+    background-size:300% 300%;
+    animation:gradientMove 18s ease infinite;
+  }
+  body::after{
+    content:'';
+    position:fixed;inset:0;z-index:-1;
+    background-image:
+      linear-gradient(rgba(110,42,70,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110,42,70,.06) 1px, transparent 1px);
+    background-size:42px 42px;
+    pointer-events:none;
+  }
+  @keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  h1,h2,h3,.font-display{font-family:'Prompt',sans-serif;}
 
-    :root{
-      --bg-a:#FFF3F7;
-      --bg-b:#FFE1EC;
-      --pink-1:#FFC2D6;
-      --pink-2:#FF6F91;
-      --pink-3:#C9184A;
-      --plum:#3A1B2B;
-      --plum-soft:#6B4557;
-      --line:#E8A0B8;
-      --glass:rgba(255,255,255,0.38);
-      --glass-strong:rgba(255,255,255,0.62);
-      --glass-border:rgba(255,255,255,0.75);
-      --shadow:0 20px 60px -20px rgba(201,24,74,0.35);
-      --radius:22px;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{
-      font-family:'Sarabun',sans-serif;
-      color:var(--plum);
-      min-height:100vh;
-      overflow-x:hidden;
-      position:relative;
-      background:linear-gradient(120deg,var(--bg-a),var(--bg-b),#FFD6E4,var(--bg-a));
-      background-size:300% 300%;
-      animation:gradientShift 18s ease infinite;
-    }
-    @keyframes gradientShift{
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
-    @media (prefers-reduced-motion:reduce){
-      body{animation:none;}
-      *{animation-duration:0.001s !important; transition-duration:0.2s !important;}
-    }
+  /* ---------- NAVBAR ---------- */
+  .navbar{
+    position:fixed;top:0;left:0;width:100%;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px clamp(20px,5vw,60px);
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--glass-border);
+    transition:.3s;
+  }
+  .logo{
+    font-family:'Prompt',sans-serif;font-weight:600;font-size:1.05rem;
+    letter-spacing:1px;color:var(--mauve);
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo span{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--rose-dark);display:inline-block;
+    box-shadow:0 0 0 4px rgba(217,102,143,.25);
+  }
+  .nav-links{display:flex;gap:clamp(10px,2vw,32px);list-style:none;}
+  .nav-links a{
+    text-decoration:none;color:var(--mauve);
+    font-family:'Prompt',sans-serif;font-size:.85rem;letter-spacing:1.5px;
+    font-weight:500;padding:8px 4px;position:relative;
+    transition:color .3s;
+  }
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:2px;
+    background:var(--gold);transition:width .35s ease;
+  }
+  .nav-links a:hover{color:var(--rose-dark);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.active{color:var(--rose-dark);font-weight:600;}
+  .nav-links a.active::after{width:100%;background:var(--rose-dark);}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+  .nav-toggle span{width:24px;height:2px;background:var(--mauve);}
 
-    /* floating blobs */
-    .blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.45;z-index:0;pointer-events:none;}
-    .blob-1{width:420px;height:420px;background:var(--pink-1);top:-120px;left:-100px;animation:floatA 14s ease-in-out infinite;}
-    .blob-2{width:360px;height:360px;background:var(--pink-2);bottom:-140px;right:-100px;animation:floatB 16s ease-in-out infinite;}
-    .blob-3{width:260px;height:260px;background:#ffffff;top:40%;right:10%;animation:floatA 20s ease-in-out infinite;}
-    @keyframes floatA{0%,100%{transform:translate(0,0);}50%{transform:translate(30px,40px);}}
-    @keyframes floatB{0%,100%{transform:translate(0,0);}50%{transform:translate(-40px,-25px);}}
+  /* ---------- GLASS ---------- */
+  .glass{
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border-radius:var(--radius);
+    box-shadow:0 20px 60px rgba(110,42,70,.15);
+  }
 
-    /* blueprint grid backdrop, faint architectural drafting texture */
-    .blueprint{
-      position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35;
-      background-image:
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px);
-      background-size:48px 48px;
-      -webkit-mask-image:radial-gradient(ellipse at center, black 0%, transparent 75%);
-              mask-image:radial-gradient(ellipse at center, black 0%, transparent 75%);
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Prompt',sans-serif;font-weight:500;font-size:.9rem;
+    letter-spacing:.5px;padding:14px 32px;border-radius:100px;
+    text-decoration:none;cursor:pointer;border:none;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .btn-primary{
+    background:linear-gradient(120deg,var(--rose-dark),var(--mauve));
+    color:#fff;box-shadow:0 12px 30px rgba(217,102,143,.4);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(217,102,143,.5);}
+  .btn-outline{
+    background:transparent;border:1.5px solid var(--mauve);color:var(--mauve);
+  }
+  .btn-outline:hover{background:var(--mauve);color:#fff;transform:translateY(-3px);}
+
+  /* ---------- COMPASS FRAME (signature element) ---------- */
+  .compass-frame{
+    position:relative;width:min(320px,70vw);aspect-ratio:1/1;
+    border-radius:50%;flex-shrink:0;
+  }
+  .compass-frame img{
+    width:100%;height:100%;object-fit:cover;border-radius:50%;
+    border:6px solid rgba(255,255,255,.7);
+    box-shadow:0 25px 60px rgba(110,42,70,.35);
+    position:relative;z-index:2;
+  }
+  .compass-frame::before{
+    content:'';position:absolute;inset:-16px;border-radius:50%;
+    border:1.5px dashed var(--gold);
+    animation:spin 28s linear infinite;
+    z-index:1;
+  }
+  .compass-frame::after{
+    content:'';position:absolute;inset:-32px;border-radius:50%;
+    background:repeating-conic-gradient(var(--rose-dark) 0deg 2deg, transparent 2deg 18deg);
+    opacity:.55;
+    -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    animation:spin 50s linear infinite reverse;
+    z-index:0;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .frame-placeholder{
+    display:none;position:absolute;inset:0;border-radius:50%;
+    align-items:center;justify-content:center;flex-direction:column;gap:8px;
+    background:linear-gradient(135deg,var(--rose),var(--gold));
+    color:#fff;text-align:center;font-size:.78rem;padding:1.2rem;z-index:2;
+  }
+  .frame-placeholder code{
+    background:rgba(0,0,0,.18);padding:2px 8px;border-radius:6px;font-size:.7rem;
+  }
+
+  /* ---------- CROSSHAIR CORNER MARKS (blueprint feel) ---------- */
+  .crosshair{position:fixed;width:24px;height:24px;z-index:5;opacity:.5;pointer-events:none;}
+  .crosshair::before,.crosshair::after{content:'';position:absolute;background:var(--mauve);}
+  .crosshair::before{width:100%;height:1px;top:50%;}
+  .crosshair::after{height:100%;width:1px;left:50%;}
+  .ch-tl{top:90px;left:20px;} .ch-tr{top:90px;right:20px;}
+  .ch-bl{bottom:20px;left:20px;} .ch-br{bottom:20px;right:20px;}
+  @media(max-width:700px){.crosshair{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:140px 24px 80px;
+  }
+  .hero-card{
+    max-width:1000px;width:100%;padding:clamp(32px,6vw,72px);
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;
+    opacity:0;transform:translateY(30px);animation:fadeUp 1s ease forwards .2s;
+  }
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  .eyebrow{
+    font-family:'Prompt',sans-serif;font-size:.78rem;letter-spacing:4px;
+    color:var(--rose-dark);text-transform:uppercase;font-weight:600;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,5vw,3.4rem);font-weight:700;color:var(--mauve);line-height:1.25;
+  }
+  .hero h1 .student-name{
+    color:var(--rose-dark);
+    background:linear-gradient(90deg,var(--rose-dark),var(--gold));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero p.tagline{
+    font-size:1.05rem;color:var(--ink);max-width:560px;line-height:1.9;opacity:.85;
+  }
+  .hero-divider{width:60px;height:3px;border-radius:3px;background:var(--gold);}
+
+  footer{
+    text-align:center;padding:28px;font-size:.8rem;color:var(--mauve);opacity:.7;
+    font-family:'Prompt',sans-serif;letter-spacing:.5px;
+  }
+
+  @media(max-width:640px){
+    .nav-links{
+      position:absolute;top:100%;left:0;width:100%;flex-direction:column;
+      background:rgba(255,255,255,.92);backdrop-filter:blur(16px);
+      max-height:0;overflow:hidden;transition:max-height .4s ease;
+      padding:0 24px;
     }
-
-    /* corner crop marks — signature element, echoes architectural drawing sheets */
-    .crop{position:relative;}
-    .crop::before,.crop::after,.crop .cm2::before,.crop .cm2::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--pink-3);opacity:.85;}
-    .crop::before{top:-8px;left:-8px;border-right:none;border-bottom:none;}
-    .crop::after{bottom:-8px;right:-8px;border-left:none;border-top:none;}
-
-    a{color:inherit;text-decoration:none;}
-    img{display:block;max-width:100%;}
-    .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
-    .eyebrow{
-      font-family:'Kanit',sans-serif;font-weight:500;letter-spacing:.32em;
-      font-size:.72rem;text-transform:uppercase;color:var(--pink-3);
-    }
-    h1,h2,h3{font-family:'Chakra Petch',sans-serif;color:var(--plum);}
-    .fade-in{opacity:0;transform:translateY(24px);animation:fadeUp .9s ease forwards;}
-    .d1{animation-delay:.05s;} .d2{animation-delay:.18s;} .d3{animation-delay:.32s;} .d4{animation-delay:.46s;} .d5{animation-delay:.6s;}
-    @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-
-    /* ---------- NAV ---------- */
-    header.nav{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:16px 28px;
-      background:var(--glass);
-      backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--glass-border);
-    }
-    .brand{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;color:var(--plum);display:flex;align-items:center;gap:8px;}
-    .brand span{color:var(--pink-3);}
-    nav.links{display:flex;gap:6px;align-items:center;}
-    nav.links a{
-      font-family:'Kanit',sans-serif;font-size:.82rem;letter-spacing:.08em;font-weight:500;
-      padding:9px 16px;border-radius:999px;color:var(--plum-soft);
-      transition:all .35s ease;position:relative;
-    }
-    nav.links a:hover{color:var(--pink-3);background:rgba(255,255,255,.5);}
-    nav.links a.active{color:#fff;background:linear-gradient(135deg,var(--pink-2),var(--pink-3));box-shadow:0 8px 20px -6px rgba(201,24,74,.6);}
-    .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:110;}
-    .burger span{width:24px;height:2px;background:var(--plum);border-radius:2px;transition:.3s;}
-
-    @media (max-width:860px){
-      nav.links{
-        position:fixed;top:0;right:0;height:100vh;width:min(78vw,320px);
-        background:var(--glass-strong);backdrop-filter:blur(20px);
-        flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;
-        padding:32px;transform:translateX(100%);transition:transform .45s ease;
-        border-left:1px solid var(--glass-border);
-      }
-      nav.links.open{transform:translateX(0);}
-      nav.links a{width:100%;font-size:1rem;padding:12px 16px;}
-      .burger{display:flex;}
-    }
-
-    /* ---------- GLASS CARD ---------- */
-    .glass-card{
-      background:var(--glass);
-      backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-      border:1px solid var(--glass-border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    /* ---------- BUTTONS ---------- */
-    .btn{
-      font-family:'Kanit',sans-serif;font-weight:500;font-size:.9rem;letter-spacing:.04em;
-      display:inline-flex;align-items:center;gap:10px;
-      padding:14px 30px;border-radius:999px;cursor:pointer;border:none;
-      transition:transform .3s ease,box-shadow .3s ease;
-    }
-    .btn-primary{background:linear-gradient(135deg,var(--pink-2),var(--pink-3));color:#fff;box-shadow:0 12px 28px -8px rgba(201,24,74,.55);}
-    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 34px -8px rgba(201,24,74,.65);}
-    .btn-ghost{background:var(--glass-strong);color:var(--pink-3);border:1px solid var(--glass-border);}
-    .btn-ghost:hover{transform:translateY(-3px);background:#fff;}
-    .btn-row{display:flex;gap:14px;flex-wrap:wrap;}
-
-    footer{
-      text-align:center;font-family:'Kanit',sans-serif;font-size:.78rem;color:var(--plum-soft);
-      padding:34px 20px 26px;position:relative;z-index:1;letter-spacing:.05em;
-    }
-
-    section{position:relative;z-index:1;}
-
-
-    .hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 80px;}
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-    .hero-photo-wrap{position:relative;display:flex;justify-content:center;}
-    .hero-photo{
-      width:100%;max-width:420px;aspect-ratio:4/5;border-radius:28px;overflow:hidden;
-      border:1px solid var(--glass-border);box-shadow:var(--shadow);
-      background:linear-gradient(160deg,#fff,var(--pink-1));
-      transition:transform .5s ease, box-shadow .5s ease;
-    }
-    .hero-photo img{width:100%;height:100%;object-fit:cover;}
-    .hero-photo-wrap:hover .hero-photo{transform:translateY(-8px) rotate(-1deg);box-shadow:0 30px 70px -18px rgba(201,24,74,.55);}
-    .hero-tag{
-      position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);
-      background:var(--glass-strong);backdrop-filter:blur(14px);
-      border:1px solid var(--glass-border);padding:10px 22px;border-radius:999px;
-      font-family:'Kanit',sans-serif;font-size:.78rem;letter-spacing:.08em;color:var(--pink-3);
-      box-shadow:0 10px 24px -10px rgba(201,24,74,.4);white-space:nowrap;
-    }
-    .hero-text h1{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.15;margin:14px 0 18px;}
-    .hero-text h1 em{font-style:normal;color:var(--pink-3);}
-    .hero-text p{color:var(--plum-soft);font-size:1.02rem;line-height:1.8;max-width:520px;margin-bottom:32px;}
-    .scroll-note{margin-top:52px;font-family:'Kanit',sans-serif;font-size:.75rem;letter-spacing:.1em;color:var(--plum-soft);display:flex;align-items:center;gap:10px;}
-    .scroll-note::before{content:"";width:34px;height:1px;background:var(--pink-3);}
-    @media (max-width:900px){
-      .hero-grid{grid-template-columns:1fr;text-align:center;}
-      .hero-text p{margin-inline:auto;}
-      .btn-row{justify-content:center;}
-      .scroll-note{justify-content:center;}
-    }
-
+    .nav-links.open{max-height:320px;padding:16px 24px 24px;}
+    .nav-toggle{display:flex;}
+  }
 </style>
 </head>
 <body>
-<div class="blueprint"></div>
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
 
+<!-- เครื่องหมายมุมสไตล์พิมพ์เขียว (ตกแต่ง) -->
+<div class="crosshair ch-tl"></div>
+<div class="crosshair ch-tr"></div>
+<div class="crosshair ch-bl"></div>
+<div class="crosshair ch-br"></div>
 
-  <header class="nav">
-    <div class="brand">PORT<span>.</span>FOLIO</div>
-    <nav class="links" id="navLinks">
-      <a href="index.html" class="active">HOME</a>
-        <a href="profile.html" class="">PROFILE</a>
-        <a href="education.html" class="">EDUCATION</a>
-        <a href="award.html" class="">AWARD</a>
-        <a href="contact.html" class="">CONTACT</a>
-        
-    </nav>
-    <div class="burger" id="burger"><span></span><span></span><span></span></div>
-  </header>
+<nav class="navbar">
+  <div class="logo"><span></span>PORTFOLIO — ARCH.</div>
+  <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">HOME</a></li>
+    <li><a href="profile.html">PROFILE</a></li>
+    <li><a href="education.html">EDUCATION</a></li>
+    <li><a href="award.html">AWARD</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
 
-
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-photo-wrap fade-in d1">
-        <div class="hero-photo crop">
-          <!-- เปลี่ยนรูปหน้าปก/โปรไฟล์ได้ที่นี่: แก้ src เป็นชื่อไฟล์ภาพของคุณ เช่น "cover.jpg" -->
-          <img src="cover.jpg" alt="รูปหน้าปก Portfolio" onerror="this.src='https://placehold.co/420x525/FFC2D6/3A1B2B?text=Cover+Photo'">
-        </div>
-        <div class="hero-tag">CLASS OF 2026 · ม.6</div>
-      </div>
-      <div class="hero-text">
-        <span class="eyebrow fade-in d1">Architecture Admission Portfolio</span>
-        <h1 class="fade-in d2">พอร์ตโฟลิโอ<br>สมัครเข้าศึกษาต่อ<br><em>คณะสถาปัตยกรรมศาสตร์</em></h1>
-        <p class="fade-in d3">รวบรวมประวัติส่วนตัว ผลการเรียน ผลงาน และเกียรติบัตรตลอดช่วงมัธยมปลาย
-        เพื่อสะท้อนความตั้งใจและความพร้อมในการก้าวสู่เส้นทางนักออกแบบและสถาปนิกในอนาคต</p>
-        <div class="btn-row fade-in d4">
-          <a href="profile.html" class="btn btn-primary">เข้าสู่ Portfolio →</a>
-        </div>
-        <div class="scroll-note fade-in d5">PROFILE · EDUCATION · AWARD · CONTACT</div>
-      </div>
+<section class="hero">
+  <div class="hero-card glass">
+    <!-- เปลี่ยนรูปหน้าปก: แก้ไขชื่อไฟล์ src ด้านล่างเป็นรูปของคุณ -->
+    <div class="compass-frame">
+      <img src="images/cover-photo.jpg" alt="รูปหน้าปก" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="frame-placeholder">🖼️<span>ใส่รูปภาพหน้าปกที่นี่<br><code>images/cover-photo.jpg</code></span></div>
     </div>
-  </section>
 
-<footer>© Portfolio สมัครเข้าศึกษาต่อ คณะสถาปัตยกรรมศาสตร์ · ออกแบบด้วย HTML / CSS / JavaScript</footer>
+    <p class="eyebrow">Architecture Portfolio</p>
+    <h1>สวัสดีค่ะ ฉันชื่อ <br><span class="student-name">[ ชื่อ - นามสกุล นักเรียน ]</span></h1>
+    <div class="hero-divider"></div>
+    <p class="tagline">
+      นักเรียนชั้นมัธยมศึกษาปีที่ 6 ผู้หลงใหลในเส้นสาย โครงสร้าง และพื้นที่ว่าง
+      พอร์ตโฟลิโอนี้รวบรวมประวัติ ผลงาน และความตั้งใจในการก้าวสู่เส้นทาง
+      นักออกแบบสถาปัตยกรรมในอนาคต
+    </p>
+    <a href="profile.html" class="btn btn-primary">เข้าสู่ Portfolio →</a>
+  </div>
+</section>
+
+<footer>© 2026 — Portfolio for Architecture Admission · แก้ไขข้อมูลได้ในไฟล์ HTML</footer>
+
 <script>
+  // เมนูมือถือ
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
 
-    const burger=document.getElementById('burger');
-    const navLinks=document.getElementById('navLinks');
-    if(burger){
-      burger.addEventListener('click',()=>{navLinks.classList.toggle('open');});
-      navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-    }
-
-
+  // ลด effect เมื่อผู้ใช้ตั้งค่า reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('*').forEach(el => el.style.animation = 'none');
+  }
 </script>
 </body>
 </html>
