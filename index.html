@@ -116,7 +116,7 @@
   }
   .btn-outline:hover{background:var(--mauve);color:#fff;transform:translateY(-3px);}
 
-  /* ---------- COMPASS FRAME (signature element) ---------- */
+  /* ---------- COMPASS FRAME ---------- */
   .compass-frame{
     position:relative;width:min(320px,70vw);aspect-ratio:1/1;
     border-radius:50%;flex-shrink:0;
@@ -153,7 +153,7 @@
     background:rgba(0,0,0,.18);padding:2px 8px;border-radius:6px;font-size:.7rem;
   }
 
-  /* ---------- CROSSHAIR CORNER MARKS (blueprint feel) ---------- */
+  /* ---------- CROSSHAIR ---------- */
   .crosshair{position:fixed;width:24px;height:24px;z-index:5;opacity:.5;pointer-events:none;}
   .crosshair::before,.crosshair::after{content:'';position:absolute;background:var(--mauve);}
   .crosshair::before{width:100%;height:1px;top:50%;}
@@ -209,7 +209,6 @@
 </head>
 <body>
 
-<!-- เครื่องหมายมุมสไตล์พิมพ์เขียว (ตกแต่ง) -->
 <div class="crosshair ch-tl"></div>
 <div class="crosshair ch-tr"></div>
 <div class="crosshair ch-bl"></div>
@@ -229,14 +228,15 @@
 
 <section class="hero">
   <div class="hero-card glass">
-    <!-- เปลี่ยนรูปหน้าปก: แก้ไขชื่อไฟล์ src ด้านล่างเป็นรูปของคุณ -->
+    <!-- แก้ไขส่วนนี้เพื่อใส่รูปของคุณ -->
     <div class="compass-frame">
-      <ing src="inages/my-inage.jpg" alt="inages/Gemini_Generated_Image_r0v1ytr0v1ytr0v1 2.jpg"> onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="frame-placeholder"><br><code>inages/cover-photo.jpg</code></span></div>
+      <img src="images/IMG_0764.jpeg" alt="รูปถ่ายนักเรียน" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="frame-placeholder">
+      </div>
     </div>
 
     <p class="eyebrow">Architecture Portfolio</p>
-    <h1>สวัสดีครับ ฉันชื่อ <br><span class="student-name">[ ชื่อ นาย วิรวัฒน์ บูรพกรณ์ ]</span></h1>
+    <h1>สวัสดีครับ ฉันชื่อ <br><span class="student-name">นายวิรวัฒน์ บูรพกรณ์</span></h1>
     <div class="hero-divider"></div>
     <p class="tagline">
       นักเรียนชั้นมัธยมศึกษาปีที่ 6 ผู้หลงใหลในเส้นสาย โครงสร้าง และพื้นที่ว่าง
@@ -247,15 +247,13 @@
   </div>
 </section>
 
-<footer>© 2026 — Portfolio for Architecture Admission · แก้ไขข้อมูลได้ในไฟล์ HTML</footer>
+<footer>© 2026 — Portfolio for Architecture Admission</footer>
 
 <script>
-  // เมนูมือถือ
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
 
-  // ลด effect เมื่อผู้ใช้ตั้งค่า reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('*').forEach(el => el.style.animation = 'none');
   }
