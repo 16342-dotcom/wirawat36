@@ -47,9 +47,19 @@
   .page-head{text-align:center;margin-bottom:52px;}
   .page-head h1{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--mauve);font-family:'Prompt',sans-serif;}
   
-  .glass{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(18px);border-radius:var(--radius);padding:40px;text-align:center;}
-  .glass h3{color:var(--mauve);margin-bottom:16px;}
-  .glass p{font-size:1.1rem;line-height:2.2;color:var(--ink);}
+  /* Grid สำหรับ 4 กล่อง */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:24px;}
+  
+  /* สไตล์กล่องแต่ละกล่องที่คลิกได้ */
+  .glass-card{
+      background:var(--glass-bg);border:1px solid var(--glass-border);
+      backdrop-filter:blur(18px);border-radius:var(--radius);
+      padding:24px;text-align:center;text-decoration:none;
+      transition:transform .3s, background .3s;
+  }
+  .glass-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.7);}
+  .glass-card h3{color:var(--mauve);margin-bottom:8px;font-size:1.1rem;}
+  .glass-card p{font-size:0.95rem;color:var(--ink);word-break:break-all;}
   
   .nav-buttons{display:flex;justify-content:space-between;margin-top:44px;gap:16px;}
   .btn{display:inline-flex;align-items:center;padding:14px 32px;border-radius:100px;text-decoration:none;font-family:'Prompt',sans-serif;font-weight:500;border:none;cursor:pointer;transition:transform .3s;}
@@ -81,14 +91,27 @@
     <h1>ช่องทางการติดต่อ</h1>
   </div>
 
-  <div class="glass">
-    <h3>ข้อมูลสำหรับติดต่อ</h3>
-    <p>
-      โทรศัพท์: 062-437-4100<br>
-      อีเมล: wirawatburapakon@gmail.com<br>
-      Facebook: อนาคิน ’น<br>
-      Instagram: @parkin_01
-    </p>
+  <div class="contact-grid">
+    <!-- กล่องที่ 1: โทรศัพท์ -->
+    <a href="tel:0624374100" class="glass-card">
+      <h3>โทรศัพท์</h3>
+      <p>062-437-4100</p>
+    </a>
+    <!-- กล่องที่ 2: อีเมล -->
+    <a href="mailto:wirawatburapakon@gmail.com" class="glass-card">
+      <h3>อีเมล</h3>
+      <p>wirawatburapakon@gmail.com</p>
+    </a>
+    <!-- กล่องที่ 3: Facebook -->
+    <a href="https://www.facebook.com/share/18qBbKvVrq/?mibextid=wwXIfr" target="_blank" class="glass-card">
+      <h3>Facebook</h3>
+      <p>อนาคิน ’น</p>
+    </a>
+    <!-- กล่องที่ 4: Instagram -->
+    <a href="https://www.instagram.com/_parkin_01?igsh=NHVicXhndnk4b21i&utm_source=qr" target="_blank" class="glass-card">
+      <h3>Instagram</h3>
+      <p>@parkin_01</p>
+    </a>
   </div>
 
   <div class="nav-buttons">
