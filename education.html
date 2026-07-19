@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Education | พอร์ตโฟลิโอสถาปัตยกรรมศาสตร์</title>
+<title>Award | พอร์ตโฟลิโอสถาปัตยกรรมศาสตร์</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -14,167 +14,83 @@
     --radius:22px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Sarabun',sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden;position:relative;}
-  body::before{
-    content:'';position:fixed;inset:0;z-index:-2;
-    background:linear-gradient(120deg,var(--blush),var(--blush-deep),var(--rose),var(--blush-deep));
-    background-size:300% 300%;animation:gradientMove 18s ease infinite;
-  }
-  body::after{
-    content:'';position:fixed;inset:0;z-index:-1;
-    background-image:linear-gradient(rgba(110,42,70,.06) 1px, transparent 1px),linear-gradient(90deg, rgba(110,42,70,.06) 1px, transparent 1px);
-    background-size:42px 42px;pointer-events:none;
-  }
-  @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-  h1,h2,h3,.font-display{font-family:'Prompt',sans-serif;}
-
-  .navbar{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,60px);background:rgba(255,255,255,.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);}
-  .logo{font-family:'Prompt',sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:1px;color:var(--mauve);display:flex;align-items:center;gap:8px;}
-  .logo span{width:10px;height:10px;border-radius:50%;background:var(--rose-dark);display:inline-block;box-shadow:0 0 0 4px rgba(217,102,143,.25);}
-  .nav-links{display:flex;gap:clamp(10px,2vw,32px);list-style:none;}
-  .nav-links a{text-decoration:none;color:var(--mauve);font-family:'Prompt',sans-serif;font-size:.85rem;letter-spacing:1.5px;font-weight:500;padding:8px 4px;position:relative;transition:color .3s;}
-  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .35s ease;}
-  .nav-links a:hover{color:var(--rose-dark);} .nav-links a:hover::after{width:100%;}
-  .nav-links a.active{color:var(--rose-dark);font-weight:600;} .nav-links a.active::after{width:100%;background:var(--rose-dark);}
-  .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
-  .nav-toggle span{width:24px;height:2px;background:var(--mauve);}
-
-  .glass{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:var(--radius);box-shadow:0 20px 60px rgba(110,42,70,.15);}
-
-  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Prompt',sans-serif;font-weight:500;font-size:.9rem;letter-spacing:.5px;padding:14px 32px;border-radius:100px;text-decoration:none;cursor:pointer;border:none;transition:transform .3s, box-shadow .3s;}
-  .btn-primary{background:linear-gradient(120deg,var(--rose-dark),var(--mauve));color:#fff;box-shadow:0 12px 30px rgba(217,102,143,.4);}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(217,102,143,.5);}
-  .btn-outline{background:transparent;border:1.5px solid var(--mauve);color:var(--mauve);}
-  .btn-outline:hover{background:var(--mauve);color:#fff;transform:translateY(-3px);}
-
+  body{font-family:'Sarabun',sans-serif;color:var(--ink);min-height:100vh;background:linear-gradient(120deg,var(--blush),var(--blush-deep),var(--rose),var(--blush-deep));}
+  
+  /* Navbar & Buttons style */
+  .navbar{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,60px);background:rgba(255,255,255,.45);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);}
+  .logo{font-family:'Prompt',sans-serif;font-weight:600;color:var(--mauve);display:flex;align-items:center;gap:8px;}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--mauve);font-family:'Prompt',sans-serif;font-size:.85rem;font-weight:500;}
+  .nav-links a.active{color:var(--rose-dark);font-weight:600;}
+  
   .page-wrap{max-width:900px;margin:0 auto;padding:140px 24px 60px;}
-  .page-head{text-align:center;margin-bottom:52px;}
-  .page-head .eyebrow{font-family:'Prompt',sans-serif;font-size:.78rem;letter-spacing:4px;color:var(--rose-dark);text-transform:uppercase;font-weight:600;}
-  .page-head h1{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--mauve);margin-top:8px;}
-
-  .fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;}
-  .fade-in.visible{opacity:1;transform:translateY(0);}
-
-  /* ---------- TIMELINE ---------- */
-  .timeline{position:relative;padding-left:0;}
-  .timeline::before{
-    content:'';position:absolute;left:24px;top:8px;bottom:8px;width:2px;
-    background:repeating-linear-gradient(to bottom, var(--gold) 0 8px, transparent 8px 16px);
-  }
-  @media(min-width:720px){
-    .timeline::before{left:50%;transform:translateX(-50%);}
-  }
-  .t-item{position:relative;padding-left:64px;margin-bottom:36px;}
-  .t-dot{
-    position:absolute;left:14px;top:6px;width:22px;height:22px;border-radius:50%;
-    background:radial-gradient(circle at 30% 30%, #fff, var(--rose-dark));
-    border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(217,102,143,.15);
-    z-index:2;
-  }
-  .t-card{padding:24px 28px;}
-  .t-year{font-family:'Prompt',sans-serif;font-size:.75rem;letter-spacing:2px;color:var(--rose-dark);text-transform:uppercase;font-weight:600;margin-bottom:6px;}
-  .t-card h3{font-size:1.2rem;color:var(--mauve);margin-bottom:6px;}
-  .t-card p{line-height:1.8;font-size:.95rem;opacity:.9;}
-
-  @media(min-width:720px){
-    .t-item{width:50%;padding-left:0;}
-    .t-item:nth-child(odd){padding-right:56px;text-align:right;}
-    .t-item:nth-child(even){margin-left:50%;padding-left:56px;}
-    .t-dot{left:auto;}
-    .t-item:nth-child(odd) .t-dot{right:-11px;}
-    .t-item:nth-child(even) .t-dot{left:-11px;}
-  }
-
-  .nav-buttons{display:flex;justify-content:space-between;margin-top:44px;gap:16px;flex-wrap:wrap;}
-  footer{text-align:center;padding:28px;font-size:.8rem;color:var(--mauve);opacity:.7;font-family:'Prompt',sans-serif;letter-spacing:.5px;}
-
-  @media(max-width:640px){
-    .nav-links{position:absolute;top:100%;left:0;width:100%;flex-direction:column;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 24px;}
-    .nav-links.open{max-height:320px;padding:16px 24px 24px;}
-    .nav-toggle{display:flex;}
-  }
+  .page-head{text-align:center;margin-bottom:50px;}
+  .page-head h1{font-size:2.5rem;color:var(--mauve);}
+  
+  /* Award Grid */
+  .award-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  @media(max-width:640px){.award-grid{grid-template-columns:1fr;}}
+  
+  .award-card{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(10px);border-radius:var(--radius);padding:20px;transition:transform .3s;}
+  .award-thumb{aspect-ratio:16/9;margin-bottom:15px;overflow:hidden;border-radius:15px;}
+  .award-thumb img{width:100%;height:100%;object-fit:cover;}
+  
+  .btn{padding:14px 32px;border-radius:100px;text-decoration:none;display:inline-block;font-family:'Prompt',sans-serif;font-weight:500;}
+  .btn-primary{background:linear-gradient(120deg,var(--rose-dark),var(--mauve));color:#fff;}
+  .btn-outline{border:1.5px solid var(--mauve);color:var(--mauve);}
+  .nav-buttons{display:flex;justify-content:space-between;margin-top:50px;}
 </style>
 </head>
 <body>
 
 <nav class="navbar">
   <div class="logo"><span></span>PORTFOLIO — ARCH.</div>
-  <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู"><span></span><span></span><span></span></button>
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="index.html">HOME</a></li>
     <li><a href="profile.html">PROFILE</a></li>
-    <li><a href="education.html" class="active">EDUCATION</a></li>
-    <li><a href="award.html">AWARD</a></li>
+    <li><a href="education.html">EDUCATION</a></li>
+    <li><a href="award.html" class="active">AWARD</a></li>
     <li><a href="contact.html">CONTACT</a></li>
   </ul>
 </nav>
 
-<div class="page-wrap">
-  <div class="page-head fade-in">
-    <p class="eyebrow">Education Timeline</p>
-    <h1>ประวัติการศึกษา</h1>
+<section class="page-wrap">
+  <div class="page-head">
+    <h1>ผลงานและเกียรติบัตร</h1>
   </div>
 
-  <div class="timeline">
-    <div class="t-item fade-in">
-      <div class="t-dot"></div>
-      <div class="glass t-card">
-        <p class="t-year">[ ปีการศึกษา ] · ระดับประถมศึกษา</p>
-        <h3>[ ชื่อโรงเรียนระดับประถมศึกษา ]</h3>
-        <p>[ รายละเอียดผลการเรียน กิจกรรม หรือความสำเร็จที่เกี่ยวข้อง ]</p>
-      </div>
+  <div class="award-grid">
+    <!-- กล่องที่ 1 -->
+    <div class="award-card">
+      <div class="award-thumb"><img src="images/IMG_0760.jpeg" alt="Award 1"></div>
+      <h3>จิตอาสาและผู้นำ</h3>
+      <p>เกียรติบัตรผู้นำในการจัดกิจกรรมค่าย STEAM DAY CAMP ประจำปีการศึกษา 2569</p>
     </div>
-
-    <div class="t-item fade-in">
-      <div class="t-dot"></div>
-      <div class="glass t-card">
-        <p class="t-year">[ ปีการศึกษา ] · มัธยมศึกษาตอนต้น</p>
-        <h3>[ ชื่อโรงเรียนระดับมัธยมต้น ]</h3>
-        <p>[ รายละเอียดผลการเรียน กิจกรรม หรือความสำเร็จที่เกี่ยวข้อง ]</p>
-      </div>
+    <!-- กล่องที่ 2 -->
+    <div class="award-card">
+      <div class="award-thumb"><img src="images/IMG_0761.jpeg" alt="Award 2"></div>
+      <h3>กิจกรรมค่าย STEM</h3>
+      <p>เกียรติบัตรเข้าร่วมกิจกรรมค่าย STEM นักวิทย์ฯ คิดสร้างสรรค์ ประจำปีการศึกษา 2567</p>
     </div>
-
-    <div class="t-item fade-in">
-      <div class="t-dot"></div>
-      <div class="glass t-card">
-        <p class="t-year">[ ปีการศึกษา ] · มัธยมศึกษาตอนปลาย</p>
-        <h3>[ ชื่อโรงเรียน ] แผนการเรียนวิทยาศาสตร์-คณิตศาสตร์</h3>
-        <p>เกรดเฉลี่ยสะสม [ GPAX ] · [ กิจกรรมชมรมหรือผลงานที่เกี่ยวข้องกับสถาปัตยกรรม ]</p>
-      </div>
+    <!-- กล่องที่ 3 -->
+    <div class="award-card">
+      <div class="award-thumb"><img src="images/IMG_0766.jpeg" alt="Award 3"></div>
+      <h3>รางวัลรองชนะเลิศอันดับ 1</h3>
+      <p>การแข่งขัน PT ROV E-Sport ในกิจกรรมสัปดาห์วิทยาศาสตร์ฯ ประจำปีการศึกษา 2567</p>
     </div>
-
-    <div class="t-item fade-in">
-      <div class="t-dot"></div>
-      <div class="glass t-card">
-        <p class="t-year">เป้าหมาย · ระดับอุดมศึกษา</p>
-        <h3>คณะสถาปัตยกรรมศาสตร์</h3>
-        <p>[ ชื่อมหาวิทยาลัยที่ตั้งใจสมัครเข้าศึกษาต่อ และเหตุผลของการเลือก ]</p>
-      </div>
+    <!-- กล่องที่ 4 -->
+    <div class="award-card">
+      <div class="award-thumb"><img src="images/IMG_0765.jpeg" alt="Award 4"></div>
+      <h3>รางวัลระดับเหรียญทอง</h3>
+      <p>การแข่งขันคณิตศาสตร์ (เอแม็ท) ม.4-ม.6 งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73</p>
     </div>
   </div>
 
   <div class="nav-buttons">
-    <a href="profile.html" class="btn btn-outline">← ย้อนกลับ</a>
-    <a href="award.html" class="btn btn-primary">ถัดไป →</a>
+    <a href="education.html" class="btn btn-outline">← ย้อนกลับ</a>
+    <a href="contact.html" class="btn btn-primary">ถัดไป →</a>
   </div>
-</div>
+</section>
 
-<footer>© 2026 — Portfolio for Architecture Admission · แก้ไขข้อมูลได้ในไฟล์ HTML</footer>
-
-<script>
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold:.15});
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('*').forEach(el => el.style.animation = 'none');
-  }
-</script>
 </body>
 </html>
