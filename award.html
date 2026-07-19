@@ -3,106 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Award</title>
+<title>Award | พอร์ตโฟลิโอสถาปัตยกรรมศาสตร์</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --pink-950:#3a1526;--pink-800:#8a2f56;--pink-600:#d1477a;--pink-500:#ec6a95;--pink-400:#f68fb0;
-  --pink-300:#ffb8cd;--pink-200:#ffd9e4;--pink-100:#fff1f5;--cream:#fffaf9;--ink:#3a2230;--ink-soft:#7a5566;
-  --gold:#c9a15a;--glass:rgba(255,255,255,.42);--glass-strong:rgba(255,255,255,.62);--glass-border:rgba(255,255,255,.65);
-  --shadow-pink:0 25px 70px -25px rgba(201,69,119,.5);
-  --font-display:'Taviraj',serif;--font-body:'Prompt',sans-serif;--font-mono:'JetBrains Mono',monospace;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);color:var(--ink);min-height:100vh;overflow-x:hidden;position:relative;
-  background:linear-gradient(120deg,var(--cream),var(--pink-100),var(--pink-200),var(--pink-300),var(--pink-100));
-  background-size:400% 400%;animation:gradientFlow 20s ease infinite;}
-@keyframes gradientFlow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-
-.navbar{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--glass-strong);backdrop-filter:blur(18px);border-bottom:1px solid var(--glass-border);}
-.nav-inner{max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;}
-.brand{font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--pink-800);text-decoration:none;}
-.nav-links{list-style:none;display:flex;gap:6px;}
-.nav-link{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);text-decoration:none;padding:8px 14px;border-radius:999px;}
-.nav-link.active{color:var(--cream);background:linear-gradient(135deg,var(--pink-600),var(--pink-400));}
-
-.section{max-width:1000px;margin:0 auto;padding:150px 28px 90px;}
-h2.title{font-family:var(--font-display);font-size:3rem;color:var(--pink-950);margin-bottom:50px;}
-
-/* ปรับให้เป็น 2 คอลัมน์สำหรับ 4 กล่อง */
-.award-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
-.award-card{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:26px;overflow:hidden;transition:transform .4s ease;}
-.award-card:hover{transform:translateY(-10px);}
-.award-thumb{aspect-ratio:16/9;overflow:hidden;}
-.award-thumb img{width:100%;height:100%;object-fit:cover;}
-.award-body{padding:20px;}
-.award-body h3{font-size:1.2rem;color:var(--pink-950);margin-bottom:10px;}
-.award-body p{font-size:0.9rem;color:var(--ink-soft);}
-
-.btn{padding:15px 30px;border-radius:999px;text-decoration:none;display:inline-block;margin-top:40px;}
-.btn-primary{background:var(--pink-600);color:#fff;}
-.btn-ghost{background:rgba(255,255,255,.3);color:var(--pink-700);}
-
-@media(max-width:640px){.award-grid{grid-template-columns:1fr;}}
+  :root{
+    --blush:#FDEEF2; --blush-deep:#FBD9E4; --rose:#F2A6C4; --rose-dark:#D9668F;
+    --mauve:#6E2A46; --ink:#2B1B22; --gold:#D9B382;
+    --glass-bg:rgba(255,255,255,.5); --glass-border:rgba(255,255,255,.75);
+    --radius:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Sarabun',sans-serif;color:var(--ink);min-height:100vh;background:linear-gradient(120deg,var(--blush),var(--blush-deep),var(--rose),var(--blush-deep));}
+  
+  /* Navbar */
+  .navbar{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,60px);background:rgba(255,255,255,.45);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);}
+  .logo{font-family:'Prompt',sans-serif;font-weight:600;font-size:1.05rem;color:var(--mauve);display:flex;align-items:center;gap:8px;}
+  .logo span{width:10px;height:10px;border-radius:50%;background:var(--rose-dark);display:inline-block;box-shadow:0 0 0 4px rgba(217,102,143,.25);}
+  .nav-links{display:flex;gap:clamp(10px,2vw,32px);list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--mauve);font-family:'Prompt',sans-serif;font-size:.85rem;letter-spacing:1.5px;font-weight:500;padding:8px 4px;transition:color .3s;}
+  .nav-links a.active{color:var(--rose-dark);font-weight:600;}
+  
+  /* Main Content */
+  .page-wrap{max-width:900px;margin:0 auto;padding:140px 24px 60px;}
+  .page-head{text-align:center;margin-bottom:52px;}
+  .page-head h1{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--mauve);font-family:'Prompt',sans-serif;}
+  
+  /* Grid & Cards */
+  .award-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;}
+  .glass{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(18px);border-radius:var(--radius);padding:20px;transition:transform .3s;}
+  .glass:hover{transform:translateY(-5px);}
+  .award-thumb{aspect-ratio:16/9;overflow:hidden;border-radius:15px;margin-bottom:15px;}
+  .award-thumb img{width:100%;height:100%;object-fit:cover;}
+  .glass h3{font-family:'Prompt',sans-serif;color:var(--mauve);margin-bottom:8px;}
+  .glass p{font-size:.9rem;opacity:.9;line-height:1.6;}
+  
+  /* Buttons */
+  .nav-buttons{display:flex;justify-content:space-between;margin-top:44px;gap:16px;}
+  .btn{display:inline-flex;align-items:center;padding:14px 32px;border-radius:100px;text-decoration:none;font-family:'Prompt',sans-serif;font-weight:500;font-size:.9rem;border:none;cursor:pointer;transition:transform .3s, box-shadow .3s;}
+  .btn-primary{background:linear-gradient(120deg,var(--rose-dark),var(--mauve));color:#fff;box-shadow:0 12px 30px rgba(217,102,143,.4);}
+  .btn-outline{border:1.5px solid var(--mauve);color:var(--mauve);}
+  .btn:hover{transform:translateY(-3px);}
 </style>
 </head>
 <body>
 
 <nav class="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">Portfolio</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">HOME</a></li>
-      <li><a href="award.html" class="nav-link active">AWARD</a></li>
-    </ul>
-  </div>
+  <div class="logo"><span></span>PORTFOLIO — ARCH.</div>
+  <ul class="nav-links">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="profile.html">PROFILE</a></li>
+    <li><a href="education.html">EDUCATION</a></li>
+    <li><a href="award.html" class="active">AWARD</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
 </nav>
 
-<section class="section">
-  <h2 class="title">ผลงานและเกียรติบัตร</h2>
+<div class="page-wrap">
+  <div class="page-head">
+    <h1>ผลงานและเกียรติบัตร</h1>
+  </div>
 
   <div class="award-grid">
     <!-- กล่องที่ 1 -->
-    <div class="award-card">
+    <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0760.jpeg" alt="Award 1"></div>
-      <div class="award-body">
-        <h3>จิตอาสาเเละผู้นำ</h3>
-        <p>เกียรติบัตรจากโรงเรียนพานทอง มอบให้นายวิรวัฒน์ บูรพกรณ์ เพื่อแสดงว่าเป็นผู้นำในการจัดกิจกรรมค่าย STEAM DAY CAMP ประจำปีการศึกษา 2569 ให้ไว้ ณ วันที่ 12 มิถุนายน 2569</p>
-      </div>
+      <h3>จิตอาสาเเละผู้นำ</h3>
+      <p>เกียรติบัตรผู้นำในการจัดกิจกรรมค่าย STEAM DAY CAMP ประจำปีการศึกษา 2569</p>
     </div>
     <!-- กล่องที่ 2 -->
-    <div class="award-card">
+    <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0761.jpeg" alt="Award 2"></div>
-      <div class="award-body">
-        <h3>กิจกรรม</h3>
-        <p>เกียรติบัตรจากโรงเรียนพานทอง มอบให้นายวิรวัฒน์ บูรพกรณ์ เพื่อแสดงว่าได้เข้าร่วมกิจกรรมค่าย STEM นักวิทย์ฯ คิดสร้างสรรค์ ประจำปีการศึกษา 2567 เมื่อวันที่ 21 และ 28 มิถุนายน พ.ศ. 2567</p>
-      </div>
+      <h3>กิจกรรมค่าย STEM</h3>
+      <p>เกียรติบัตรเข้าร่วมกิจกรรมค่าย STEM นักวิทย์ฯ คิดสร้างสรรค์ ประจำปีการศึกษา 2567</p>
     </div>
     <!-- กล่องที่ 3 -->
-    <div class="award-card">
+    <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0766.jpeg" alt="Award 3"></div>
-      <div class="award-body">
-        <h3>รางวัลที่ 2</h3>
-        <p>เกียรติบัตรจากโรงเรียนพานทอง มอบให้นายวิรวัฒน์ บูรพกรณ์ ได้รับ รางวัลรองชนะเลิศอันดับ 1 การแข่งขัน PT ROV E-Sport ระดับชั้นมัธยมศึกษาตอนปลาย ในกิจกรรมสัปดาห์วิทยาศาสตร์ เทคโนโลยี และคณิตศาสตร์ ภายใต้แนวคิด STEAM “คิด วิทย์ เทคโน” ประจำปีการศึกษา 2567 ให้ไว้ ณ วันที่ 18 สิงหาคม พ.ศ. 2567</p>
-      </div>
+      <h3>รางวัลรองชนะเลิศอันดับ 1</h3>
+      <p>การแข่งขัน PT ROV E-Sport กิจกรรมสัปดาห์วิทยาศาสตร์ฯ ประจำปีการศึกษา 2567</p>
     </div>
     <!-- กล่องที่ 4 -->
-    <div class="award-card">
+    <div class="glass">
       <div class="award-thumb"><img src="images/IMG_0765.jpeg" alt="Award 4"></div>
-      <div class="award-body">
-        <h3>รางวัลที่ 3</h3>
-        <p>เกียรติบัตรจากสำนักงานเขตพื้นที่การศึกษามัธยมศึกษาชลบุรี ระยอง มอบให้นายวิรวัฒน์ บูรพกรณ์ โรงเรียนพานทอง ได้รับ รางวัลระดับเหรียญทอง กิจกรรมการแข่งขันคณิตศาสตร์ (เอแม็ท) ระดับชั้น ม.4-ม.6 ในงานศิลปหัตถกรรมนักเรียน ครั้งที่ 73 ประจำปีการศึกษา 2566 จัดขึ้นระหว่างวันที่ 19-23 มกราคม พ.ศ. 2567</p>
-      </div>
+      <h3>รางวัลระดับเหรียญทอง</h3>
+      <p>การแข่งขันคณิตศาสตร์ (เอแม็ท) ม.4-ม.6 งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73</p>
     </div>
   </div>
 
-  <div class="pager">
-    <a href="education.html" class="btn btn-ghost">◂ ย้อนกลับ</a>
-    <a href="contact.html" class="btn btn-primary">ถัดไป ▸</a>
+  <div class="nav-buttons">
+    <a href="education.html" class="btn btn-outline">← ย้อนกลับ</a>
+    <a href="contact.html" class="btn btn-primary">ถัดไป →</a>
   </div>
-</section>
+</div>
 
 </body>
 </html>
