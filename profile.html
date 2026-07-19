@@ -59,9 +59,14 @@
   .fade-in.visible{opacity:1;transform:translateY(0);}
 
   .profile-grid{display:grid;grid-template-columns:320px 1fr;gap:40px;padding:clamp(28px,4vw,52px);align-items:start;}
-  .profile-photo-frame{position:relative;width:100%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;border:6px solid rgba(255,255,255,.7);}
+  .profile-photo-frame{position:relative;width:100%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;border:1.5px solid rgba(255,255,255,.8);}
   .profile-photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
-  .frame-placeholder{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:linear-gradient(135deg,var(--rose),var(--gold));color:#fff;text-align:center;font-size:.78rem;padding:1.2rem;}
+  .profile-photo-frame::after{
+    content:'';position:absolute;top:14px;left:14px;right:14px;bottom:14px;
+    border:1px dashed var(--gold);border-radius:10px;pointer-events:none;
+  }
+  .frame-placeholder{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:linear-gradient(160deg,var(--rose),var(--gold));color:#fff;text-align:center;font-size:.78rem;padding:1.2rem;}
+  .frame-placeholder code{background:rgba(0,0,0,.18);padding:2px 8px;border-radius:6px;font-size:.7rem;}
 
   .profile-info h2{font-size:1.9rem;color:var(--mauve);margin-bottom:6px;}
   .profile-info .role{font-family:'Prompt',sans-serif;font-size:.85rem;letter-spacing:2px;color:var(--rose-dark);text-transform:uppercase;margin-bottom:24px;}
@@ -75,7 +80,7 @@
   .nav-buttons{display:flex;justify-content:space-between;margin-top:44px;gap:16px;flex-wrap:wrap;}
   footer{text-align:center;padding:28px;font-size:.8rem;color:var(--mauve);opacity:.7;font-family:'Prompt',sans-serif;letter-spacing:.5px;}
 
-  @media(max-width:800px){.profile-grid{grid-template-columns:1fr;}.profile-photo-frame{max-width:280px;margin:0 auto;}}
+  @media(max-width:800px){.profile-grid{grid-template-columns:1fr;}.profile-photo-frame{max-width:280px;margin:0 auto;}.info-list{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -97,19 +102,29 @@
     <!-- ส่วนรูปโปรไฟล์ -->
     <div class="profile-photo-frame">
       <img src="images/IMG_0764.jpeg" alt="รูปโปรไฟล์" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    
+      
     </div>
 
     <div class="profile-info">
       <p class="role">Personal Profile</p>
-      <h2>นายวิรวัฒน์ บูรพกรณ์</h2>
+      <h2>[ ชื่อ - นามสกุล นักเรียน ]</h2>
+
       <ul class="info-list">
-        <li><span class="label">เป้าหมาย</span><span class="value">สถาปัตยกรรมศาสตร์</span></li>
-        <li><span class="label">แผนการเรียน</span><span class="value">วิทย์-คณิต</span></li>
-        <li class="full"><span class="label">ความสามารถพิเศษ</span><span class="value">ออกแบบ 3D, วาดภาพสถาปัตยกรรม</span></li>
+        <li><span class="label">วันเดือนปีเกิด</span><span class="value">[ วัน / เดือน / ปี ]</span></li>
+        <li><span class="label">อายุ</span><span class="value">[ 17 ปี ]</span></li>
+        <li><span class="label">โรงเรียน</span><span class="value">[ ชื่อโรงเรียน ]</span></li>
+        <li><span class="label">แผนการเรียน</span><span class="value">[ วิทยาศาสตร์ - คณิตศาสตร์ ]</span></li>
+        <li><span class="label">เกรดเฉลี่ยสะสม (GPAX)</span><span class="value">[ 3.75 ]</span></li>
+        <li><span class="label">เป้าหมายการศึกษาต่อ</span><span class="value">คณะสถาปัตยกรรมศาสตร์</span></li>
+        <li class="full"><span class="label">ความสามารถพิเศษ</span><span class="value">[ วาดภาพ ออกแบบโมเดล 3 มิติ ถ่ายภาพ ฯลฯ ]</span></li>
+        <li class="full"><span class="label">งานอดิเรก</span><span class="value">[ วาดภาพร่าง เยี่ยมชมงานสถาปัตยกรรม ถ่ายภาพเมือง ฯลฯ ]</span></li>
       </ul>
+
       <p class="section-title">แรงบันดาลใจ</p>
-      <p style="line-height:1.9;">เขียนแนะนำตัวของคุณที่นี่...</p>
+      <p style="line-height:1.9;">
+        [ เขียนแนะนำตัวสั้น ๆ เกี่ยวกับความสนใจในงานออกแบบและสถาปัตยกรรม
+        เหตุผลที่เลือกเรียนต่อคณะนี้ และเป้าหมายในอนาคตของคุณ ]
+      </p>
     </div>
   </div>
 
@@ -118,6 +133,8 @@
     <a href="education.html" class="btn btn-primary">ถัดไป →</a>
   </div>
 </div>
+
+<footer>© 2026 — Portfolio for Architecture Admission · แก้ไขข้อมูลได้ในไฟล์ HTML</footer>
 
 <script>
   document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
